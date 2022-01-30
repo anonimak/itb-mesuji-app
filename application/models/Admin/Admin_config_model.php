@@ -9,6 +9,7 @@ class Admin_config_model extends CI_Model
     $this->tableUser            = 'user';
     $this->tableMajor           = 'major';
     $this->tableProdi           = 'prodi';
+    $this->tableCourse          = 'course';
     $this->tableRegency         = 'regency';
     $this->tableProvince        = 'province';
     $this->tableStudent         = 'student';
@@ -49,6 +50,16 @@ class Admin_config_model extends CI_Model
   }
 
   public function getMajor()
+  {
+    return $this->db->get($this->tableMajor);
+  }
+
+  public function getProdi()
+  {
+    return $this->db->get($this->tableProdi);
+  }
+
+  public function getCourse()
   {
     return $this->db->get($this->tableMajor);
   }

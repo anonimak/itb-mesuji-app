@@ -39,6 +39,13 @@ $route['admin/master/prodi/excel']                  = 'admin_study_program/expor
 $route['admin/master/prodi/edit/(:any)']            = 'admin_study_program/update/$1';
 $route['admin/master/prodi/delete/(:any)']          = 'admin_study_program/delete/$1';
 
+//MATAKULIAH
+$route['admin/master/course']                        = 'admin_course';
+$route['admin/master/course/add']                    = 'admin_course/create';
+$route['admin/master/course/excel']                  = 'admin_course/exportExcel';
+$route['admin/master/course/edit/(:any)']            = 'admin_course/update/$1';
+$route['admin/master/course/delete/(:any)']          = 'admin_course/delete/$1';
+
 //STUDENT
 $route['admin/master/student']                      = 'admin_students';
 $route['admin/master/student/add']                  = 'admin_students/create';

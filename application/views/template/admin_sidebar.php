@@ -27,6 +27,7 @@
                <div class="submenu-content">
                   <a href="<?= base_url('admin/master/major') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'major' ? 'active' : '') ?>">Jurusan</a>
                   <a href="<?= base_url('admin/master/prodi') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'prodi' ? 'active' : '') ?>">Program Studi</a>
+                  <a href="<?= base_url('admin/master/course') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'course' ? 'active' : '') ?>">Matakuliah</a>
                   <a href="<?= base_url('admin/master/student') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'student' ? 'active' : '') ?>">Mahasiswa</a>
                   <a href="<?= base_url('admin/master/lecture') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'lecture' ? 'active' : '') ?>">Dosen</a>
                   <a href="<?= base_url('admin/master/head-of-program-study') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'head-of-program-study' ? 'active' : '') ?>">Ketua Program Studi</a>
