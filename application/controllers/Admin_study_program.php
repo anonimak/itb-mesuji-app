@@ -43,7 +43,7 @@ class Admin_study_program extends CI_Controller
             $dataInputProdi = [
                 'name'      => htmlspecialchars($this->input->post('name')),
                 'code'      => htmlspecialchars($this->input->post('code')),
-                'degree'    => htmlspecialchars($this->input->post('degree')),
+                'degree'    => 'S1',
                 'email'     => $email,
                 'major_id'  => htmlspecialchars($this->input->post('major'))
             ];

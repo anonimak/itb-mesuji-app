@@ -44,18 +44,7 @@ class Admin_major extends CI_Controller
 
       $insertMajor    = $this->Major->insert($dataInsertMajor);
       if ($insertMajor > 0) {
-        $this->db->set('id', 'UUID()', FALSE);
-        $dataInsertUser = [
-          'username'  => $email,
-          'password'  => password_hash('123456', PASSWORD_DEFAULT),
-          'role_id'   => '775b1040-b7a8-11eb-a91e-0cc47abcfaa6',
-        ];
-        $insertUser = $this->Config->insertUserTable($dataInsertUser);
-        if ($insertUser > 0) {
-          $this->session->set_flashdata('success', 'Data berhasil di tambah');
-        } else {
-          $this->session->set_flashdata('error', 'Server Data User Sedang sibuk, silahkan coba lagi');
-        }
+        $this->session->set_flashdata('success', 'Data berhasil di tambah');
       } else {
         $this->session->set_flashdata('error', 'Server Data Jurusan Sedang sibuk, silahkan coba lagi');
       }
@@ -87,20 +76,7 @@ class Admin_major extends CI_Controller
         ];
         $updateMajor        = $this->Major->update($dataUpdateMajor, ['id' => $decodeId]);
         if ($updateMajor > 0) {
-          $cekUserByEmail = $this->Config->getDataUserBy(['username' => $oldEmail])->row();
-          $dataUpdateUser     = [
-            'username'         => $newEmail,
-            'updated_at'    => date('Y-m-d H:i:s')
-          ];
-          $userId         = $cekUserByEmail->id;
-          // var_dump($userId);
-          // die;
-          $updateUser     = $this->Config->updateUser($dataUpdateUser, ['id' => $userId]);
-          if ($updateUser > 0) {
-            $this->session->set_flashdata('success', 'Data berhasil di update');
-          } else {
-            $this->session->set_flashdata('error', 'Update Data User Sedang sibuk, silahkan coba lagi');
-          }
+          $this->session->set_flashdata('success', 'Data berhasil di update');
         } else {
           $this->session->set_flashdata('error', 'Update Data Jurusan Sedang sibuk, silahkan coba lagi');
         }
@@ -119,12 +95,7 @@ class Admin_major extends CI_Controller
     if ($major) {
       $deleteMajor    = $this->Major->delete(['id' => $decodeId]);
       if ($deleteMajor > 0) {
-        $deleteUser = $this->Config->deleteUser(['username' => $major->email]);
-        if ($deleteUser > 0) {
-          $this->session->set_flashdata('success', 'Data berhasil di hapus');
-        } else {
-          $this->session->set_flashdata('error', 'Server data user sedang sibuk, silahkan coba lagi');
-        }
+        $this->session->set_flashdata('success', 'Data berhasil di hapus');
       } else {
         $this->session->set_flashdata('error', 'Server data jurusan sedang sibuk, silahkan coba lagi');
       }

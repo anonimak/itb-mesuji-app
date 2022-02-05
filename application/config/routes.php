@@ -19,6 +19,7 @@ $route['admin/config/academic_year/add']            = 'admin_academic_year/creat
 $route['admin/config/academic_year/edit/(:any)']    = 'admin_academic_year/update/$1';
 $route['admin/config/academic_year/delete/(:any)']  = 'admin_academic_year/delete/$1';
 
+
 //PERIODE
 $route['admin/config/(:any)']                       = 'admin_periode/index/$1';
 $route['admin/config/add/(:any)']                   = 'admin_periode/create/$1';
@@ -95,6 +96,11 @@ $route['admin/master/users/update/(:any)/(:any)']   = 'Admin_users/update/$1/$2'
 $route['mahasiswa/dashboard']                       = 'mahasiswa_dashboard';
 $route['mahasiswa/profile']                         = 'mahasiswa_profile';
 
+
+
+
+//CONFIG SELECT2
+$route['config/getprodi']                           = 'Admin_config/getprodi';
 
 
 /*=================END MAHASISWA ROLE======================*/

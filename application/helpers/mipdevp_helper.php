@@ -96,3 +96,13 @@ function pretty_dump($data)
 {
     echo '<pre>' . var_export($data, true) . '</pre>';
 }
+
+function unsetFlash()
+{
+    if (isset($_SESSION['success'])) {
+        unset($_SESSION['success']);
+    }
+    if (isset($_SESSION['error'])) {
+        unset($_SESSION['error']);
+    }
+}

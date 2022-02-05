@@ -64,7 +64,7 @@
                   <?= form_error('major'); ?>
                 </div>
               </div>
-              <div class="form-group mt-4">
+              <!-- <div class="form-group mt-4">
                 <label for="name">Jenjang</label>
                 <div class="form-radio">
                   <div class="radio radio-inline">
@@ -80,7 +80,7 @@
                     </label>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <button type="submit" class="btn btn-primary"><i class="ik ik-save"></i>Simpan</button>
               <a href="<?= base_url('admin/master/prodi') ?>" class="btn btn-danger"><i class="ik ik-skip-back"></i>Kembali</a>
             </form>

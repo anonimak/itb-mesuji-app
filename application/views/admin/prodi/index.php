@@ -28,6 +28,7 @@
     <?php elseif ($this->session->flashdata('error')) : ?>
       <div class="flashdata" data-flashdata=" <?= $this->session->flashdata('error') ?>" data-type="error"></div>
     <?php endif; ?>
+    <?php unsetFlash(); ?>
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
