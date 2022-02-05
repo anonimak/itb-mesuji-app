@@ -39,7 +39,7 @@
                   <h3 class="text-uppercase"><?= $title; ?></h3>
                 </div>
                 <div>
-                  <a href="<?= base_url('admin/master/prodi/excel'); ?>" class="btn btn-success"><i class="ik ik-plus-square"></i>Export Data</a>
+                  <!-- <a href="<?= base_url('admin/master/prodi/excel'); ?>" class="btn btn-success"><i class="ik ik-plus-square"></i>Export Data</a> -->
                   <a href="<?= base_url('admin/master/prodi/add'); ?>" class="btn btn-primary"><i class="ik ik-plus-square"></i>Tambah</a>
                 </div>
               </div>

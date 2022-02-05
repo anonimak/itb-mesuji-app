@@ -72,8 +72,8 @@ class Admin_students extends CI_Controller
 			$this->_validation($oldNpm, $student->email);
 			if ($this->form_validation->run() === false) {
 				$data = [
-					'title'         => 'Ubah Data Dosen',
-					'desc'          => 'Berfungsi untuk mengubah Data Dosen',
+					'title'         => 'Ubah Data Mahasiswa',
+					'desc'          => 'Berfungsi untuk mengubah Data Mahasiswa',
 					'student'       => $student,
 				];
 				$page = '/admin/student/update';
@@ -196,7 +196,7 @@ class Admin_students extends CI_Controller
 	private function _validation($npm = null, $email = null)
 	{
 		if ($this->input->post('npm') !== $npm) {
-			$is_unique  = '|is_unique[user.username]';
+			$is_unique  = '|is_unique[student.npm]';
 		} else {
 			$is_unique  = '';
 		}
@@ -206,6 +206,8 @@ class Admin_students extends CI_Controller
 			'trim|required|max_length[8]|min_length[8]' . $is_unique,
 			[
 				'required' => '%s wajib di isi',
+				'min_length'	=> '%s minimal 8 karakter',
+				'max_length'	=> '%s maksimal 8 karekter'
 			]
 		);
 
