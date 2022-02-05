@@ -22,7 +22,7 @@
                   <a href="<?= base_url('admin/config/academic_year') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'academic_year' || $this->uri->segment(4) === 'academic_year' ? 'active' : '') ?>">Tahun Akademik</a>
                </div>
             </div>
-            <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'major' || $this->uri->segment(3) === 'prodi' || $this->uri->segment(3) === 'student' || $this->uri->segment(3) === 'lecture' || $this->uri->segment(3) === 'company' || $this->uri->segment(3) === 'room' || $this->uri->segment(3) === 'head-of-program' || $this->uri->segment(3) === 'head-of-program-study' || $this->uri->segment(3) === 'users' || $this->uri->segment(3) === 'pkl' ? 'active open' : '') ?>">
+            <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'major' || $this->uri->segment(3) === 'prodi' || $this->uri->segment(3) === 'student' || $this->uri->segment(3) === 'lecture' || $this->uri->segment(3) === 'course' || $this->uri->segment(3) === 'room' || $this->uri->segment(3) === 'users' || $this->uri->segment(3) === 'pkl' ? 'active open' : '') ?>">
                <a href="javascript:void(0)"><i class="ik ik-server"></i><span>Master Data</span></a>
                <div class="submenu-content">
                   <a href="<?= base_url('admin/master/major') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'major' ? 'active' : '') ?>">Jurusan</a>
