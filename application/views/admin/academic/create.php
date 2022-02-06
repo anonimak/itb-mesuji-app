@@ -33,14 +33,42 @@
             <form action="" method="POST">
               <div class="form-group has-error">
                 <label for="name">Tahun Akademik</label>
-                <input type="text" class="form-control <?= form_error('name') ? 'is-invalid' : ''; ?>" id="name" placeholder="Tahun Akademik: example 2020/2021" name="name">
+                <input type="text" class="form-control <?= form_error('name') ? 'is-invalid' : ''; ?>" id="name" placeholder="Tahun Akademik: contoh 2020/2021" name="name">
                 <div class="invalid-feedback">
                   <?= form_error('name'); ?>
                 </div>
               </div>
+
+              <div class="form-group">
+                <label for="name">Semester</label>
+                <div class="form-radio">
+                  <div class="radio radio-inline">
+                    <label>
+                      <input type="radio" name="semester" value="Ganjil" checked>
+                      <i class="helper"></i>Ganjil
+                    </label>
+                  </div>
+                  <div class="radio radio-inline">
+                    <label>
+                      <input type="radio" name="semester" value="Genap">
+                      <i class="helper"></i>Genap
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="last-register">Akhir Registrasi KRS</label>
+                <input type="date" class="form-control <?= form_error('last-register') ? 'is-invalid' : ''; ?>" id="last-register" name="last-register">
+                <div class="invalid-feedback">
+                  <?= form_error('last-register'); ?>
+                </div>
+              </div>
+
               <div class="alert bg-warning alert-primary text-white" role="alert">
                 Info ! Ketika membuat tahun ajaran baru, tahun ajaran sebelumnya status akan otomatis non-aktif
               </div>
+
               <button type="submit" class="btn btn-primary"><i class="ik ik-save"></i>Simpan</button>
               <a href="<?= base_url('admin/config/academic_year') ?>" class="btn btn-danger"><i class="ik ik-skip-back"></i>Kembali</a>
             </form>

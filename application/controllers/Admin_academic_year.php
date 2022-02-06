@@ -25,14 +25,7 @@ class Admin_academic_year extends CI_Controller
 
   public function create()
   {
-    $this->form_validation->set_rules(
-      'name',
-      'Tahun Akademik',
-      'trim|required',
-      [
-        'required' => '%s wajib di isi',
-      ]
-    );
+    $this->_validation();
     if ($this->form_validation->run() === FALSE) {
       $data = [
         'title'         => 'Tambah Data Tahun Akademik',
@@ -71,7 +64,10 @@ class Admin_academic_year extends CI_Controller
   {
     $this->db->set('id', 'UUID()', FALSE);
     $datainsert = [
-      'name'      => htmlspecialchars($this->input->post('name')),
+      'name'              => htmlspecialchars($this->input->post('name')),
+      'semester'          => $this->input->post('semester'),
+      'last_register_krs' => $this->input->post('last-register'),
+      'status'            => '1',
     ];
     $insert     = $this->TA->insert($datainsert);
     return $insert;
@@ -97,12 +93,12 @@ class Admin_academic_year extends CI_Controller
         $update = $this->TA->update(['status' => '0', 'updated_at' => date('Y-m-d H:i:s')]);
         if ($update > 0) {
           $dataUpdate = [
-            'name'          => $ta,
-            'status'        => $status,
-            'updated_at'    => date('Y-m-d H:i:s')
+            'name'              => $ta,
+            'semester'          => $this->input->post('semester'),
+            'last_register_krs' => $this->input->post('last-register'),
+            'status'            => $status,
+            'updated_at'        => date('Y-m-d H:i:s')
           ];
-          // var_dump($dataUpdate);
-          // die;
           $updateTa     = $this->TA->update($dataUpdate, ['id' => $decodeId]);
           if ($updateTa > 0) {
             $this->session->set_flashdata('success', 'Data Berhasil di update');
@@ -142,6 +138,15 @@ class Admin_academic_year extends CI_Controller
     $this->form_validation->set_rules(
       'name',
       'Tahun Ajaran',
+      'trim|required',
+      [
+        'required' => '%s wajib di isi',
+      ]
+    );
+
+    $this->form_validation->set_rules(
+      'last-register',
+      'Tanggal Akhir Registrasi KRS',
       'trim|required',
       [
         'required' => '%s wajib di isi',

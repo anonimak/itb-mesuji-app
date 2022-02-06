@@ -30,6 +30,7 @@
       <div class="flashdata" data-flashdata=" <?= $this->session->flashdata('error') ?>" data-type="error"></div>
       <!--jika gagal -->
     <?php endif; ?>
+    <?php unsetFlash() ?>
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
@@ -48,6 +49,8 @@
                   <tr>
                     <th>No</th>
                     <th>Tahun Ajaran</th>
+                    <th>Semester</th>
+                    <th>Akhir Registrasi KRS</th>
                     <th>Status</th>
                     <th>Aksi</th>
                   </tr>
@@ -58,6 +61,8 @@
                     <tr>
                       <td><?= $i++; ?></td>
                       <td><?= $ta->name; ?></td>
+                      <td><?= strtoupper($ta->semester); ?></td>
+                      <td><?= date('d-M-Y', strtotime($ta->last_register_krs)); ?></td>
                       <td>
                         <?= ($ta->status === '1' ? '<span class="badge badge-pill badge-success mb-1">Aktif</span>' : '<span class="badge badge-pill badge-danger mb-1">Tidak Aktif</span>') ?>
                       </td>
