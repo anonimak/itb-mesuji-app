@@ -83,7 +83,8 @@
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <a href="<?= base_url('admin/master/student/edit/' . encodeEncrypt($student->id)) ?>" class="btn btn-success"><i class="ik ik-edit"></i>Edit</a>
-                                                    <button type="button" class="btn btn-danger delete-student" data-id="<?= encodeEncrypt($student->id) ?>"><i class=" ik ik-trash"></i>Hapus</button>
+                                                    <button type="button" class="btn btn-danger delete-student" data-id="<?= encodeEncrypt($student->id) ?>"><i class="ik ik-trash"></i>Hapus</button>
+                                                    <button type="button" class="btn btn-warning reset-password" data-id="<?= encodeEncrypt($student->id) ?>"><i class="ik ik-sunrise"></i>Reset Password</button>
                                                 </div>
                                             </td>
                                         </tr>

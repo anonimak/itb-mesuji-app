@@ -46,6 +46,7 @@ class Admin_students extends CI_Controller
 				'fullname'          => htmlspecialchars($this->input->post('fullname')),
 				'npm'               => $npm,
 				'email'             => htmlspecialchars($this->input->post('email')),
+				'password'					=> password_hash('123456', PASSWORD_DEFAULT),
 				'prodi_id'          => htmlspecialchars($this->input->post('prodi')),
 				'address'           => htmlspecialchars($this->input->post('address')),
 				'birth_date'        => htmlspecialchars($this->input->post('birthdate')),
@@ -122,6 +123,28 @@ class Admin_students extends CI_Controller
 		redirect($this->redirect);
 	}
 
+	public function resetpassword($id)
+	{
+		$decode     = decodeEncrypt($id);
+		$student    = $this->Student->getDataBy(['a.id' => $decode])->row();
+		if ($student) {
+			$dataUpdate	= [
+				'password'					=> password_hash('123456', PASSWORD_DEFAULT),
+				'updated_at'				=> date('Y-m-d H:i:s')
+			];
+			$updateStudent      = $this->Student->update($dataUpdate, ['id' => $decode]);
+			if ($updateStudent > 0) {
+				$this->session->set_flashdata('success', 'Password berhasil di reset');
+			} else {
+				$this->session->set_flashdata('error', 'Server Data Dosen sedang sibuk, silahkan coba lagi');
+			}
+			redirect($this->redirect);
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+			redirect($this->redirect);
+		}
+	}
+
 	public function import()
 	{
 		$data = [
@@ -192,6 +215,8 @@ class Admin_students extends CI_Controller
 
 		$this->load->view('admin/student/export/excel', $data);
 	}
+
+
 
 	private function _validation($npm = null, $email = null)
 	{

@@ -55,7 +55,7 @@ $route['admin/master/student/delete/(:any)']        = 'admin_students/delete/$1'
 $route['admin/master/student/import']               = 'admin_students/import'; //view
 $route['admin/master/student/importstudent']        = 'admin_students/importstudent'; //action
 $route['admin/master/student/export']               = 'admin_students/export'; //view
-
+$route['admin/master/student/resetpassword/(:any)'] = 'admin_students/resetpassword/$1';
 
 //LECTURE
 $route['admin/master/lecture']                      = 'admin_lecture';
