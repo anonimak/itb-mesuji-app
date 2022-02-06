@@ -60,18 +60,7 @@ class Admin_lecture extends CI_Controller
       ];
       $insertLecture      = $this->Lecture->insert($dataInputLecture);
       if ($insertLecture > 0) {
-        $this->db->set('id', 'UUID()', FALSE);
-        $dataInsertUser = [
-          'username'  => $nip,
-          'password'  => password_hash('123456', PASSWORD_DEFAULT),
-          'role_id'   => '775b0f58-b7a8-11eb-a91e-0cc47abcfaa6',
-        ];
-        $insertUser = $this->Config->insertUserTable($dataInsertUser);
-        if ($insertUser > 0) {
-          $this->session->set_flashdata('success', 'Data berhasil di tambah');
-        } else {
-          $this->session->set_flashdata('error', 'Server Data User Sedang sibuk, silahkan coba lagi');
-        }
+        $this->session->set_flashdata('success', 'Data berhasil di tambah');
       } else {
         $this->session->set_flashdata('error', 'Server Data Prodi sedang sibuk, silahkan coba lagi');
       }
@@ -111,18 +100,7 @@ class Admin_lecture extends CI_Controller
         ];
         $updateLecture      = $this->Lecture->update($dataUpdateLecture, ['id' => $decode]);
         if ($updateLecture > 0) {
-          $cekUserByNip   = $this->Config->getDataUserBy(['username' => $oldNip])->row();
-          $dataUpdateUser = [
-            'username'      => $nip,
-            'updated_at'    => date('Y-m-d H:i:s')
-          ];
-          $userId         = $cekUserByNip->id;
-          $updateUser     = $this->Config->updateUser($dataUpdateUser, ['id' => $userId]);
-          if ($updateUser > 0) {
-            $this->session->set_flashdata('success', 'Data berhasil di ubah');
-          } else {
-            $this->session->set_flashdata('error', 'Server Data User Sedang sibuk, silahkan coba lagi');
-          }
+          $this->session->set_flashdata('success', 'Data berhasil di ubah');
         } else {
           $this->session->set_flashdata('error', 'Server Data Dosen sedang sibuk, silahkan coba lagi');
         }
@@ -138,14 +116,9 @@ class Admin_lecture extends CI_Controller
     $decodeId   = decodeEncrypt($id);
     $lecture    = $this->Lecture->getDataBy(['a.id' => $decodeId])->row();
     if ($lecture) {
-      $deleteprodi    = $this->Lecture->delete(['id' => $decodeId]);
-      if ($deleteprodi > 0) {
-        $deleteUser = $this->Config->deleteUser(['username' => $lecture->nip]);
-        if ($deleteUser > 0) {
-          $this->session->set_flashdata('success', 'Data berhasil di hapus');
-        } else {
-          $this->session->set_flashdata('error', 'Server data user sedang sibuk, silahkan coba lagi');
-        }
+      $deleteLecture    = $this->Lecture->delete(['id' => $decodeId]);
+      if ($deleteLecture > 0) {
+        $this->session->set_flashdata('success', 'Data berhasil di hapus');
       } else {
         $this->session->set_flashdata('error', 'Server data dosen sedang sibuk, silahkan coba lagi');
       }
