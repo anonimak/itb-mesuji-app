@@ -610,7 +610,9 @@ $(document).ready(function () {
 		placeholder: "Cari nama Dosen atau Jurusan",
 	});
 
-	$(".kaprodi-checkbox").on("click", function () {
+
+	
+	$(document).on("change", ".kaprodi-checkbox", function () {
 		var id = $(this).data("id");
 		if ($(this).is(":checked")) {
 			data = {

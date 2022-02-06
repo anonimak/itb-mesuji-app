@@ -26,7 +26,6 @@ class Admin_head_program_study_model extends CI_Model
                     JOIN `major` as `b` ON `a`.`major_id`=`b`.`id`
                     JOIN `prodi` as `c` ON `a`.`prodi_id`=`c`.`id` 
                     WHERE `a`.`id` NOT IN(SELECT `lecture_id` FROM `head_of_study_program` WHERE `status` = "1")
-                    AND `a`.`id` NOT IN(SELECT `lecture_id` FROM `head_of_department` WHERE `status` = "1")
                     AND `c`.`id` NOT IN(SELECT `prodi_id` FROM `head_of_study_program`  WHERE `status` = "1")';
         return $this->db->query($query);
     }

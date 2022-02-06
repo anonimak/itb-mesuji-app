@@ -22,7 +22,7 @@
                   <a href="<?= base_url('admin/config/academic_year') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'academic_year' || $this->uri->segment(4) === 'academic_year' ? 'active' : '') ?>">Tahun Akademik</a>
                </div>
             </div>
-            <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'major' || $this->uri->segment(3) === 'prodi' || $this->uri->segment(3) === 'student' || $this->uri->segment(3) === 'lecture' || $this->uri->segment(3) === 'course' || $this->uri->segment(3) === 'room' || $this->uri->segment(3) === 'users' || $this->uri->segment(3) === 'pkl' ? 'active open' : '') ?>">
+            <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'major' || $this->uri->segment(3) === 'prodi' || $this->uri->segment(3) === 'student' || $this->uri->segment(3) === 'lecture' || $this->uri->segment(3) === 'course' || $this->uri->segment(3) === 'room' || $this->uri->segment(3) === 'users' || $this->uri->segment(3) === 'head-of-program-study' ? 'active open' : '') ?>">
                <a href="javascript:void(0)"><i class="ik ik-server"></i><span>Master Data</span></a>
                <div class="submenu-content">
                   <a href="<?= base_url('admin/master/major') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'major' ? 'active' : '') ?>">Jurusan</a>
@@ -31,8 +31,8 @@
                   <a href="<?= base_url('admin/master/student') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'student' ? 'active' : '') ?>">Mahasiswa</a>
                   <a href="<?= base_url('admin/master/lecture') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'lecture' ? 'active' : '') ?>">Dosen</a>
                   <a href="<?= base_url('admin/master/head-of-program-study') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'head-of-program-study' ? 'active' : '') ?>">Ketua Program Studi</a>
-                  <a href="<?= base_url('admin/master/room') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'room' ? 'active' : '') ?>">Daftar Ruangan</a>
-                  <a href="<?= base_url('admin/master/users') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'users' ? 'active' : '') ?>">Data User</a>
+                  <!-- <a href="<?= base_url('admin/master/room') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'room' ? 'active' : '') ?>">Daftar Ruangan</a> -->
+                  <!-- <a href="<?= base_url('admin/master/users') ?>" class="menu-item <?= ($this->uri->segment(3)  === 'users' ? 'active' : '') ?>">Data User</a> -->
                </div>
             </div>
 
