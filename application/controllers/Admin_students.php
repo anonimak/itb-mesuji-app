@@ -145,6 +145,26 @@ class Admin_students extends CI_Controller
 		}
 	}
 
+	public function krs($id)
+	{
+		$decode     = decodeEncrypt($id);
+		$student    = $this->Student->getDataBy(['a.id' => $decode])->row();
+		if ($student) {
+			$krs			= $this->Student->getDataKRSBy(['student_id' => $decode])->result();
+			$data = [
+				'title'         => 'KRS Mahasiswa',
+				'desc'          => 'Berfungsi untuk Melihat Data KRS Mahasiswa',
+				'student'       => $student,
+				'datakrs'				=> $krs,
+			];
+			$page = '/admin/student/krs';
+			pageBackend($this->role, $page, $data);
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+			redirect($this->redirect);
+		}
+	}
+
 	public function import()
 	{
 		$data = [
