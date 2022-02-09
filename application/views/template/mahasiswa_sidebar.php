@@ -23,8 +23,8 @@
           <a href=" <?= site_url('mahasiswa/dashboard') ?>"><i class="ik ik-home"></i><span>Dashboard</span></a>
         </div>
         <?php if ($resultQueryProfileCheck) : ?>
-          <div class="nav-item <?= ($this->uri->segment(2) === 'planning' ? 'active' : '') ?>">
-            <a href=" <?= site_url('mahasiswa/planning') ?>"><i class="ik ik-check-circle"></i><span>Perencanaan KRS</span></a>
+          <div class="nav-item <?= ($this->uri->segment(2) === 'krs' ? 'active' : '') ?>">
+            <a href=" <?= site_url('mahasiswa/krs') ?>"><i class="ik ik-check-circle"></i><span>Perencanaan KRS</span></a>
           </div>
           <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'log' || $this->uri->segment(3)  === 'check_point' ? 'active open' : '') ?>">
             <a href=" javascript:void(0)"><i class="ik ik-layers"></i><span>Daily</span></a>
@@ -33,8 +33,8 @@
               <a href="<?= base_url('mahasiswa/daily/check_point') ?>" class="menu-item <?= ($this->uri->segment(3) === 'check_point' ? 'active' : '') ?>">Absensi</a>
             </div>
           </div>
-          <div class="nav-item <?= ($this->uri->segment(2) === 'data_pkl' ? 'active' : '') ?>">
-            <a href=" <?= site_url('mahasiswa/data_pkl') ?>"><i class="ik ik-airplay"></i><span>Data KHS</span></a>
+          <div class="nav-item <?= ($this->uri->segment(2) === 'khs' ? 'active' : '') ?>">
+            <a href=" <?= site_url('mahasiswa/khs') ?>"><i class="ik ik-airplay"></i><span>Data KHS</span></a>
           </div>
         <?php endif ?>
       </nav>

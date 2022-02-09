@@ -14,7 +14,7 @@ class Auth_model extends CI_Model
   public function userCheck($username)
   {
     $this->db->select('*');
-    $query = $this->db->get_where('student', ['email' => $username, 'status' => 1]);
+    $query = $this->db->get_where('student', ['npm' => $username, 'status' => 1]);
     return $query;
   }
 

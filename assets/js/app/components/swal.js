@@ -1,5 +1,42 @@
+// toast
+const Toast = Swal.mixin({
+	toast: true,
+	position: "top-end",
+	showConfirmButton: false,
+});
+
 // Swal Module
 var mySwal = {
+	toast: function (title = "", icon = "info") {
+		Toast.fire({
+			icon,
+			title,
+			timer: 3000,
+			timerProgressBar: true,
+		});
+	},
+	showLoading: function (title = "Memuat data") {
+		Toast.fire({
+			title: title,
+		});
+		Toast.showLoading();
+	},
+
+	hideLoading: function () {
+		Toast.close();
+	},
+
+	defaultDialog: function (text = "", callbackResult) {
+		Swal.fire({
+			text: text,
+			icon: "info",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yakin",
+		}).then(callbackResult);
+	},
+
 	deleteDialog: function (text = "", callbackResult) {
 		Swal.fire({
 			text: text,
