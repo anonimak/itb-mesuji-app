@@ -17,18 +17,15 @@
               <li class="breadcrumb-item">
                 <a href="<?= base_url(); ?>">Dashboard</a>
               </li>
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="<?= base_url('admin/master/student') ?>">Data Mahasiswa</a>
+              </li>
               <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
             </ol>
           </nav>
         </div>
       </div>
     </div>
-    <?php if ($this->session->flashdata('success')) : ?>
-      <div class="flashdata" data-flashdata=" <?= $this->session->flashdata('success') ?>" data-type="success"></div>
-    <?php elseif ($this->session->flashdata('error')) : ?>
-      <div class="flashdata" data-flashdata=" <?= $this->session->flashdata('error') ?>" data-type="error"></div>
-    <?php endif; ?>
-    <?php unsetFlash(); ?>
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
@@ -36,11 +33,7 @@
             <div class="d-flex flex-grow-1 min-width-zero card-content">
               <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
                 <div>
-                  <h3 class="text-uppercase"><?= $title; ?></h3>
-                </div>
-                <div>
-                  <!-- <a href="<?= base_url('admin/master/prodi/excel'); ?>" class="btn btn-success"><i class="ik ik-plus-square"></i>Export Data</a> -->
-                  <a href="<?= base_url('admin/master/prodi/add'); ?>" class="btn btn-primary"><i class="ik ik-plus-square"></i>Tambah</a>
+                  <h3 class="text-uppercase"><?= $title; ?> : <?= $student->fullname . ' ' . $student->npm ?></h3>
                 </div>
               </div>
             </div>
@@ -51,30 +44,27 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Jurusan</th>
-                    <th>Prodi</th>
-                    <th>Kode</th>
-                    <th>Jenjang</th>
-                    <th>Email</th>
+                    <th>Tahun Akademik</th>
+                    <th>Semester</th>
+                    <th>Kredit</th>
+                    <th>IP</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $i = 1;
-                  foreach ($allData as $ps) : ?>
+                  foreach ($datakrs as $krs) : ?>
                     <tr>
                       <td><?= $i++; ?></td>
-                      <td><?= $ps->major_name; ?></td>
-                      <td><?= $ps->name; ?></td>
-                      <td><?= $ps->code; ?></td>
-                      <td><?= $ps->degree; ?></td>
-                      <td>
-                        <?= $ps->email; ?>
-                      </td>
+                      <td><?= $krs->ta ?></td>
+                      <td><?= $krs->semester ?></td>
+                      <td><?= $krs->kredit ?></td>
+                      <td><?= $krs->ip ?></td>
+                      <td><?= strtoupper($krs->status); ?></td>
                       <td>
                         <div class="btn-group" role="group">
-                          <a href="<?= base_url('admin/master/prodi/edit/' . encodeEncrypt($ps->id)) ?>" class="btn btn-success"><i class="ik ik-edit"></i>Edit</a>
-                          <button type="button" class="btn btn-danger delete-ps" data-id="<?= encodeEncrypt($ps->id) ?>"><i class=" ik ik-trash"></i>Hapus</button>
+                          <a href="#" class="btn btn-success"><i class="ik ik-edit"></i> Ini Tombol Aksi</a>
                         </div>
                       </td>
                     </tr>

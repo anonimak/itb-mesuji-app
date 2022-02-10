@@ -19,6 +19,7 @@ $route['admin/config/academic_year/add']            = 'admin_academic_year/creat
 $route['admin/config/academic_year/edit/(:any)']    = 'admin_academic_year/update/$1';
 $route['admin/config/academic_year/delete/(:any)']  = 'admin_academic_year/delete/$1';
 
+
 //PERIODE
 $route['admin/config/(:any)']                       = 'admin_periode/index/$1';
 $route['admin/config/add/(:any)']                   = 'admin_periode/create/$1';
@@ -54,7 +55,8 @@ $route['admin/master/student/delete/(:any)']        = 'admin_students/delete/$1'
 $route['admin/master/student/import']               = 'admin_students/import'; //view
 $route['admin/master/student/importstudent']        = 'admin_students/importstudent'; //action
 $route['admin/master/student/export']               = 'admin_students/export'; //view
-
+$route['admin/master/student/resetpassword/(:any)'] = 'admin_students/resetpassword/$1';
+$route['admin/master/student/krs/(:any)']           = 'admin_students/krs/$1';
 
 //LECTURE
 $route['admin/master/lecture']                      = 'admin_lecture';
@@ -104,6 +106,11 @@ $route['mahasiswa/api/krs/add-course']['post']              = 'mahasiswa_api/ins
 $route['mahasiswa/api/krs/remove-course/(:any)']['get']     = 'mahasiswa_api/removeCurrentCourse/$1';
 $route['mahasiswa/api/krs/submit-krs/(:any)']['get']        = 'mahasiswa_api/submitKrs/$1';
 
+
+
+
+//CONFIG SELECT2
+$route['config/getprodi']                           = 'Admin_config/getprodi';
 
 
 /*=================END MAHASISWA ROLE======================*/

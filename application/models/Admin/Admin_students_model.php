@@ -9,6 +9,8 @@ class Admin_students_model extends CI_Model
     $this->table        = 'student';
     $this->tableProdi   = 'prodi';
     $this->tableMajor   = 'major';
+    $this->tableKrs     = 'krs';
+    $this->tableTa      = 'academic_year';
   }
 
   public function getAllData()
@@ -95,5 +97,13 @@ class Admin_students_model extends CI_Model
     $this->db->where_in('username', $where);
     $this->db->delete('user');
     return $this->db->affected_rows();
+  }
+
+  //KRS
+  public function getDataKRSBy($data)
+  {
+    $this->db->select('a.*,b.name as ta');
+    $this->db->join($this->tableTa . ' b', 'a.academic_year_id=b.id');
+    return $this->db->get_where($this->tableKrs . ' a', $data);
   }
 }

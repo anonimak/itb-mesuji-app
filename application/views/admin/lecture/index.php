@@ -28,6 +28,7 @@
     <?php elseif ($this->session->flashdata('error')) : ?>
       <div class="flashdata" data-flashdata=" <?= $this->session->flashdata('error') ?>" data-type="error"></div>
     <?php endif; ?>
+    <?php unsetFlash(); ?>
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
@@ -38,7 +39,7 @@
                   <h3 class="text-uppercase"><?= $title; ?></h3>
                 </div>
                 <div>
-                  <a href="<?= base_url('admin/master/lecture/import'); ?>" class="btn btn-success"><i class="ik ik-plus-square"></i>Import</a>
+                  <!-- <a href="<?= base_url('admin/master/lecture/import'); ?>" class="btn btn-success"><i class="ik ik-plus-square"></i>Import</a> -->
                   <a href="<?= base_url('admin/master/lecture/add'); ?>" class="btn btn-primary"><i class="ik ik-plus-square"></i>Tambah</a>
                 </div>
               </div>

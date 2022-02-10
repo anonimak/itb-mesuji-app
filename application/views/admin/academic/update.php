@@ -38,6 +38,31 @@
                   <?= form_error('name'); ?>
                 </div>
               </div>
+              <div class="form-group">
+                <label for="name">Semester</label>
+                <div class="form-radio">
+                  <div class="radio radio-inline">
+                    <label>
+                      <input type="radio" name="semester" value="Ganjil" <?= $academic_row->semester === "Ganjil" ? 'checked' : '' ?>>
+                      <i class="helper"></i>Ganjil
+                    </label>
+                  </div>
+                  <div class="radio radio-inline">
+                    <label>
+                      <input type="radio" name="semester" value="Genap" <?= $academic_row->semester === "Genap" ? 'checked' : '' ?>>
+                      <i class="helper"></i>Genap
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="last-register">Akhir Registrasi KRS</label>
+                <input type="date" class="form-control <?= form_error('last-register') ? 'is-invalid' : ''; ?>" id="last-register" name="last-register" value="<?= set_value('last-register') ? set_value('last-register') : $academic_row->last_register_krs; ?>">
+                <div class="invalid-feedback">
+                  <?= form_error('last-register'); ?>
+                </div>
+              </div>
               <div class="form-group mt-4">
                 <label for="name">Status</label>
                 <div class="form-radio">
@@ -49,7 +74,7 @@
                   </div>
                   <div class="radio radio-inline">
                     <label>
-                      <input type="radio" name="status" <?= ($academic_row->status === '0' ? 'checked="checked"' : ''); ?> value="2">
+                      <input type="radio" name="status" <?= ($academic_row->status === '0' ? 'checked="checked"' : ''); ?> value="0">
                       <i class="helper"></i>Tidak Aktif
                     </label>
                   </div>
