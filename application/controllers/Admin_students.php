@@ -10,6 +10,7 @@ class Admin_students extends CI_Controller
 		parent::__construct();
 		$this->load->model('Admin/Admin_students_model', 'Student');
 		$this->load->model('Admin/Admin_config_model', 'Config');
+		$this->load->model('Admin/Admin_lecture_model', 'Lecture');
 		$this->role         = 'admin';
 		$this->redirect     = 'admin/master/student';
 		cek_login('Admin');
@@ -32,9 +33,11 @@ class Admin_students extends CI_Controller
 		$this->_validation();
 		if ($this->form_validation->run() === false) {
 			$data = [
+				'allprodi'			=> $this->Student->getProdi()->result(),
 				'title'         => 'Tambah Data Mahasiswa',
 				'desc'          => 'Berfungsi untuk menambah Data Mahasiswa',
 			];
+
 			$page = '/admin/student/create';
 			pageBackend($this->role, $page, $data);
 		} else {
@@ -236,7 +239,16 @@ class Admin_students extends CI_Controller
 		$this->load->view('admin/student/export/excel', $data);
 	}
 
-
+	public function getDosenPembimbing()
+	{
+		$prodiId = $this->input->post('prodiId');
+		$data = $this->Lecture->getDataBy(['prodi_id' => $prodiId])->result();
+		$output = '<option value=""></option>';
+		foreach ($data as $row) {
+			$output .= '<option value="' . $row->id . '"> ' . $row->name . '</option>';
+		}
+		$this->output->set_content_type('application/json')->set_output(json_encode($output));
+	}
 
 	private function _validation($npm = null, $email = null)
 	{
@@ -312,6 +324,17 @@ class Admin_students extends CI_Controller
 			$this->form_validation->set_rules(
 				'prodi',
 				'Program Studi',
+				'trim|required',
+				[
+					'required' => '%s wajib di isi',
+				]
+			);
+		}
+
+		if ($this->input->post('dosen-pembimbing') === "") {
+			$this->form_validation->set_rules(
+				'dosen-pembimbing',
+				'Dosen Pembimbing',
 				'trim|required',
 				[
 					'required' => '%s wajib di isi',

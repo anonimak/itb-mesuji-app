@@ -64,7 +64,7 @@
                       <td><?= strtoupper($krs->status); ?></td>
                       <td>
                         <div class="btn-group" role="group">
-                          <a href="#" class="btn btn-success"><i class="ik ik-edit"></i> Ini Tombol Aksi</a>
+                          <a href="<?= base_url() ?>" class="btn btn-warning"><i class="ik ik-eye"></i> Detail</a>
                         </div>
                       </td>
                     </tr>

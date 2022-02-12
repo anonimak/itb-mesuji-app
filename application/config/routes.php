@@ -57,6 +57,8 @@ $route['admin/master/student/importstudent']        = 'admin_students/importstud
 $route['admin/master/student/export']               = 'admin_students/export'; //view
 $route['admin/master/student/resetpassword/(:any)'] = 'admin_students/resetpassword/$1';
 $route['admin/master/student/krs/(:any)']           = 'admin_students/krs/$1';
+$route['admin/master/student/getDosenPembimbing']   = 'admin_students/getDosenPembimbing';
+
 
 //LECTURE
 $route['admin/master/lecture']                      = 'admin_lecture';

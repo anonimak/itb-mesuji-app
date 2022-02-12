@@ -117,7 +117,32 @@ $(document).ready(function () {
 
 	//STUDENT
 	select2ajax("prodi", "Cari nama jurusan atau prodi");
+	
+	//CARI DOSEN PEMBIMBING
+	
+	$(".get-dosen-pembimbing").select2({
+		placeholder: "Cari nama dosen pembimbing",
+	});
+	
 
+	$('.get-program-study').change(function() {
+		var prodiId = $(this).val();
+		$.ajax({
+				type: "POST",
+				url: `${base_url}/admin/master/student/getDosenPembimbing`,
+				data: {
+					prodiId: prodiId
+				},
+				dataType: "JSON",
+				success: function(response) {
+						$('.get-dosen-pembimbing').html(response);
+				}
+		});
+});
+
+	
+
+	
 	$(document).on("click", ".delete-student", function () {
 		var id = $(this).data("id");
 		buttonClickDelete("student", id);
@@ -186,8 +211,8 @@ $(document).ready(function () {
 					.find(".form-control")
 					.val(
 						$(this)
-							.val()
-							.replace(/C:\\fakepath\\/i, "")
+						.val()
+						.replace(/C:\\fakepath\\/i, "")
 					);
 			});
 		});
@@ -522,7 +547,7 @@ $(document).ready(function () {
 	});
 
 
-	
+
 	$(document).on("change", ".kaprodi-checkbox", function () {
 		var id = $(this).data("id");
 		if ($(this).is(":checked")) {
@@ -551,8 +576,8 @@ $(document).ready(function () {
 	});
 
 	//RESET PASSWORD Mahasiswa
-	$(document).on("click", ".reset-password", function(){
-		var id	= $(this).data("id");
+	$(document).on("click", ".reset-password", function () {
+		var id = $(this).data("id");
 		Swal.fire({
 			text: 'Reset Password Ke 123456',
 			icon: "info",
@@ -565,7 +590,7 @@ $(document).ready(function () {
 			allowEscapeKey: false,
 		}).then((result) => {
 			if (result.isConfirmed) {
-				url	= `${base_url}admin/master/student/resetpassword/${id}`
+				url = `${base_url}admin/master/student/resetpassword/${id}`
 				document.location.href = url;
 			}
 		});

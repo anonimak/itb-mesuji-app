@@ -106,4 +106,12 @@ class Admin_students_model extends CI_Model
     $this->db->join($this->tableTa . ' b', 'a.academic_year_id=b.id');
     return $this->db->get_where($this->tableKrs . ' a', $data);
   }
+
+  //GET PRODI
+  public function getProdi()
+  {
+    $this->db->select('a.*, b.name as major');
+    $this->db->join($this->tableMajor . ' b', 'a.major_id=b.id', 'LEFT');
+    return $this->db->get($this->tableProdi . ' a');
+  }
 }

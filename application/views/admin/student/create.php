@@ -67,14 +67,6 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="address">Alamat</label>
-                    <textarea id="address" name="address" class="form-control <?= form_error('address') ? 'is-invalid' : ''; ?>" rows="4" cols="50"><?= set_value('address') ?></textarea>
-                    <div class="invalid-feedback">
-                      <?= form_error('address'); ?>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
                     <label for="nohp">Nomor HP</label>
                     <input type="text" class="form-control <?= form_error('nohp') ? 'is-invalid' : ''; ?>" id="nohp" placeholder="Masukan Nomor Hp" name="nohp" value="<?= set_value('nohp') ?>">
                     <div class="invalid-feedback">
@@ -84,11 +76,30 @@
 
                   <div class="form-group">
                     <label for="prodi">Pilih Prodi</label>
-                    <select class="get-prodi form-control <?= form_error('prodi') ? 'is-invalid' : ''; ?>" name="prodi" id="prodi" style="width: 100%">
-                      <option></option>
+                    <select class="get-program-study form-control <?= form_error('prodi') ? 'is-invalid' : ''; ?>" name="prodi" id="prodi" style="width: 100%">
+                      <option value=""></option>
+                      <?php foreach ($allprodi as $prodi) : ?>
+                        <option value="<?= $prodi->id; ?>"> <?= $prodi->major . ' - ' . $prodi->name; ?> </option>
+                      <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                       <?= form_error('prodi'); ?>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="dosen-pembimbing">Pilih Dosen Pembimbing</label>
+                    <select class="get-dosen-pembimbing form-control <?= form_error('dosen-pembimbing') ? 'is-invalid' : ''; ?>" name="dosen-pembimbing" id="dosen-pembimbing" style="width: 100%">
+                      <option></option>
+                    </select>
+                    <div class="invalid-feedback">
+                      <?= form_error('dosen-pembimbing'); ?>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Alamat</label>
+                    <textarea id="address" name="address" class="form-control <?= form_error('address') ? 'is-invalid' : ''; ?>" rows="4" cols="50"><?= set_value('address') ?></textarea>
+                    <div class="invalid-feedback">
+                      <?= form_error('address'); ?>
                     </div>
                   </div>
                 </div>
