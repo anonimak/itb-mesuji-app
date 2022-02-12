@@ -1,5 +1,5 @@
 <?php
-$queryProfileCheck = "SELECT * FROM student WHERE email != '' AND address != '' AND birth_date != '' AND no_hp != '' AND email = '" . $this->session->userdata('user') . "'";
+$queryProfileCheck = "SELECT * FROM student WHERE email != '' AND address != '' AND birth_date != '' AND no_hp != '' AND npm = '" . $this->session->userdata('user') . "'";
 $resultQueryProfileCheck = $this->db->query($queryProfileCheck)->row();
 ?>
 <div class="main-content">

@@ -15,7 +15,7 @@ class Mahasiswa_dashboard extends CI_Controller
   {
     $data = [
       'title'         => 'Dashboard',
-      'desc'          => 'Sistem Informasi PKL Politeknik Negeri Lampung',
+      'desc'          => 'Sistem Informasi KRS/KHS ITB Mesuji',
       'showName'      => $this->Auth->showNameLogin()
     ];
     $page = '/dashboard/mahasiswa_dashboard';

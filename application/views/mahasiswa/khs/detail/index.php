@@ -1,4 +1,4 @@
-<div id="app" data-module="StudentKrsIndexModule" class="main-content">
+<div class="main-content">
     <div class="container-fluid">
         <div class="page-header">
             <div class="row align-items-end">
@@ -6,7 +6,7 @@
                     <div class="page-header-title">
                         <i class="ik ik-inbox bg-blue"></i>
                         <div class="d-inline">
-                            <h5><?= $title; ?></h5>
+                            <h5>Data KHS <?= $title; ?></h5>
                             <span><?= $desc; ?></span>
                         </div>
                     </div>
@@ -16,6 +16,9 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="<?= base_url(); ?>">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="<?= base_url('mahasiswa/khs'); ?>">Data KHS</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
                         </ol>
@@ -28,21 +31,18 @@
         <?php elseif ($this->session->flashdata('error')) : ?>
             <div class="flashdata" data-flashdata=" <?= $this->session->flashdata('error') ?>" data-type="error"></div>
         <?php endif; ?>
-        <div class="alert alert-info alert-dismissible fade show mt-5" role="alert">
-            Pendaftaran perencanaan KRS dibuka hingga tanggal <strong><?= $akademik->last_register_krs ?></strong>
-        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <span class="badge badge-info attr-data-status"></span>
-                                <button type="button" class="btn btn-primary float-right submit-krs d-none">Submit KRS</button>
+                                <a href="<?= base_url('mahasiswa/khs') ?>" class="btn btn-secondary float-right ml-2">Kembali</a>
+                                <button type="button" class="btn btn-primary float-right submit-krs"><i class="ik ik-file"></i>Cetak KHS</button>
                             </div>
                             <div class="col-12 mt-4">
                                 <div class="text-center">
-                                    <h4>Kartu Rencana Study</h4>
+                                    <h4>Kartu Hasil Study</h4>
                                 </div>
                             </div>
                         </div>
@@ -53,23 +53,15 @@
                                         Nama
                                     </div>
                                     <div class="col">
-                                        : <span class="attr-data-fullname"></span>
+                                        : <?= $dataKhs->fullname ?>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        NIM
+                                        NPM
                                     </div>
                                     <div class="col">
-                                        : <span class="attr-data-npm"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Jenjang Akademik
-                                    </div>
-                                    <div class="col">
-                                        : <span class="attr-data-degree"></span>
+                                        : <?= $dataKhs->npm ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -77,7 +69,7 @@
                                         Semester
                                     </div>
                                     <div class="col">
-                                        : <span class="attr-data-semester"></span>
+                                        : <?= $dataKhs->semester ?>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +79,7 @@
                                         Program Studi
                                     </div>
                                     <div class="col">
-                                        : <span class="attr-data-prodi_name"></span>
+                                        : <?= $dataKhs->prodi_name ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -95,24 +87,7 @@
                                         Tahun Akademik
                                     </div>
                                     <div class="col">
-                                        : <span class="attr-data-academic_year_name"></span> <span class="attr-data-academic_year_semester"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Total kredit yang telah dicapai
-                                    </div>
-                                    <div class="col">
-                                        : <span class="attr-data-total_kredit"></span>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        IP Semester lalu
-                                    </div>
-                                    <div class="col">
-                                        : <span class="attr-data-ip_latest"></span>
+                                        : <?= $dataKhs->academic_year_name . " " . $dataKhs->academic_year_semester ?>
                                     </div>
                                 </div>
                             </div>
@@ -120,25 +95,53 @@
                         <hr>
                         <div class="row mt-4">
                             <div class="col-12">
-                                <table id="table-course-taken" class=" table table-stripped dataTable">
+                                <table class=" table table-stripped dataTable">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Sandi Matakuliah</th>
                                             <th>Nama Matakuliah</th>
-                                            <th>Semester</th>
-                                            <th>SKS</th>
-                                            <th>Pengambilan ke</th>
-                                            <th>Aksi</th>
+                                            <th>Kredit</th>
+                                            <th>HM</th>
+                                            <th>NA</th>
+                                            <th>Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <?php
+                                        $i = 1;
+                                        foreach ($detailKhs as $item) : ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><?= $item->code ?></td>
+                                                <td><?= $item->name ?></td>
+                                                <td><?= $item->sks ?></td>
+                                                <td><?= $item->score ?></td>
+                                                <td><?= $item->grade ?></td>
+                                                <td><?= $item->description ?></td>
+                                            </tr>
+                                        <?php
+                                        endforeach; ?>
                                     </tbody>
                                 </table>
-                                <button id="btn-modal-course" class="btn btn-primary d-none" data-toggle="modal" data-target="#modal-choose-course">
-                                    Tambah Matakuliah
-                                </button>
+                            </div>
+                            <div class="col-xl-3 col-md-3 mt-4">
+                                <table class=" table table-stripped dataTable">
+                                    <tbody>
+                                        <tr>
+                                            <th>Indeks Prestasi</th>
+                                            <th><?= $dataKhs->ip ?></th>
+                                        </tr>
+                                        <tr>
+                                            <th>Total SKS</th>
+                                            <th><?= $dataKhs->total_kredit ?></th>
+                                        </tr>
+                                        <tr>
+                                            <th>Indeks Prestasi Kumulatif</th>
+                                            <th><?= $dataKhs->ipk ?></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

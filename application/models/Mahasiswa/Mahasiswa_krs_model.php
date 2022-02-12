@@ -94,13 +94,41 @@
             return $this->db->get($this->table . ' a', ['a.student_id' => $studentId]);
         }
 
-        public function getSumKredit($studentId)
+        public function getSumKrs($studentId)
         {
-            $this->db->select('sum(kredit) total_kredit');
+            $this->db->select('sum(kredit) total_kredit, (sum(ip)/ count(ip)) ipk');
             $this->db->where('status', 'verified');
             $this->db->group_by('student_id');
             $query = $this->db->get($this->table, ['student_id' => $studentId]);
             return $query->row();
+        }
+
+        public function getKhs($studentId)
+        {
+            $this->db->select('a.id, a.semester, c.name academic_year_name, c.semester academic_year_semester');
+            $this->db->join($this->tableAcademicYear . ' c', 'a.academic_year_id=c.id', 'LEFT');
+            $this->db->where('a.status', 'verified');
+            $this->db->order_by('a.semester', 'ASC');
+            return $this->db->get_where($this->table . ' a', ['a.student_id' => $studentId]);
+        }
+
+        public function getKhsbyId($id, $studentId)
+        {
+            $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
+            $this->db->join($this->tableStudent . ' b', 'a.student_id=b.id', 'LEFT');
+            $this->db->join($this->tableAcademicYear . ' c', 'a.academic_year_id=c.id', 'LEFT');
+            $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
+            $this->db->where('a.student_id', $studentId);
+            return $this->db->get_where($this->table . ' a', ['a.id' => $id]);
+        }
+
+        public function getKhsCourseTakenbyKhsId($khsId)
+        {
+            $this->db->select('a.id, a.grade, a.score, a.description, c.code, c.name, c.sks');
+            $this->db->join($this->tableCourse . ' c', 'a.course_id=c.id', 'LEFT');
+            $this->db->where('a.krs_id', $khsId);
+            $this->db->order_by('c.semester', 'ASC');
+            return $this->db->get($this->tableDetail . ' a');
         }
 
         public function insert($data)

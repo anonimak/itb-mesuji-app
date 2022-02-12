@@ -102,6 +102,9 @@ $route['pdf/khs']                                       = 'PrintPdf/khs';
 $route['mahasiswa/dashboard']                       = 'mahasiswa_dashboard';
 $route['mahasiswa/profile']                         = 'mahasiswa_profile';
 $route['mahasiswa/krs']                             = 'mahasiswa_krs';
+$route['mahasiswa/khs']                             = 'mahasiswa_khs';
+$route['mahasiswa/khs/detail/(:any)']               = 'mahasiswa_khs/indexDetail/$1';
+$route['mahasiswa/khs/pdf/(:any)']                  = 'mahasiswa_khs/reporttoPDF/$1';
 
 
 // API
