@@ -11,7 +11,7 @@
   </div>
 
   <?php
-  $queryProfileCheck = "SELECT * FROM student WHERE email != '' AND address != '' AND birth_date != '' AND no_hp != '' AND email = '" . $this->session->userdata('user') . "'";
+  $queryProfileCheck = "SELECT * FROM student WHERE email != '' AND address != '' AND birth_date != '' AND no_hp != '' AND npm = '" . $this->session->userdata('user') . "'";
   $resultQueryProfileCheck = $this->db->query($queryProfileCheck)->row();
   ?>
 
@@ -26,13 +26,13 @@
           <div class="nav-item <?= ($this->uri->segment(2) === 'krs' ? 'active' : '') ?>">
             <a href=" <?= site_url('mahasiswa/krs') ?>"><i class="ik ik-check-circle"></i><span>Perencanaan KRS</span></a>
           </div>
-          <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'log' || $this->uri->segment(3)  === 'check_point' ? 'active open' : '') ?>">
+          <!-- <div class="nav-item has-sub <?= ($this->uri->segment(3)  === 'log' || $this->uri->segment(3)  === 'check_point' ? 'active open' : '') ?>">
             <a href=" javascript:void(0)"><i class="ik ik-layers"></i><span>Daily</span></a>
             <div class="submenu-content">
               <a href="<?= base_url('mahasiswa/daily/log') ?>" class="menu-item <?= ($this->uri->segment(3) === 'log' ? 'active' : '') ?>">Note</a>
               <a href="<?= base_url('mahasiswa/daily/check_point') ?>" class="menu-item <?= ($this->uri->segment(3) === 'check_point' ? 'active' : '') ?>">Absensi</a>
             </div>
-          </div>
+          </div> -->
           <div class="nav-item <?= ($this->uri->segment(2) === 'khs' ? 'active' : '') ?>">
             <a href=" <?= site_url('mahasiswa/khs') ?>"><i class="ik ik-airplay"></i><span>Data KHS</span></a>
           </div>
