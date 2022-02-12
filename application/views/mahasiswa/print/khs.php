@@ -57,35 +57,7 @@
     <tbody>
       <tr>
         <td>
-          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-            <tbody>
-              <tr>
-                <td>
-                  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
-                    <tbody>
-                      <tr>
-                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-                          <table border="0" cellpadding="10" cellspacing="0" class="divider_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                            <tr>
-                              <td>
-                                <div align="center">
-                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                                    <tr>
-                                      <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 1px solid #BBBBBB;"><span> </span></td>
-                                    </tr>
-                                  </table>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
           <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
             <tbody>
               <tr>
@@ -94,45 +66,10 @@
                     <tbody>
                       <tr>
                         <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-                          <table border="0" cellpadding="0" cellspacing="0" class="html_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" class="image_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
                             <tr>
-                              <td>
-                                <div align="center" style="text-align:center;">
-                                  <table border="0" style="border-collapse: collapse; width: 100%;">
-                                    <tbody>
-                                      <tr>
-                                        <td style="width:20%;text-align: center; vertical-align: middle;"><img alt="" height="100" src="<?= base_url('assets/img/logo/Institut_Teknologi_dan_Bisnis_Mesuji.png') ?>" width="100" /></td>
-                                        <td style="width: 55%; font-size:25px; font-weight:bold; text-align:center">
-                                          PROSEDUR AKADEMIK
-                                          <br />
-                                          PENGISIAN KRS
-                                        </td>
-                                        <td style="width: 25%;">
-                                          <table border="0" style="border-collapse: collapse; width: 103.145%; height: 130px;font-size:14px">
-                                            <tbody>
-                                              <tr style="">
-                                                <td style="width: 50%;text-align:left">Kode</td>
-                                                <td style="width: 50%;text-align:left">: SOP-BAK-007</td>
-                                              </tr>
-                                              <tr style="">
-                                                <td style="width: 50%;text-align:left">Tanggal</td>
-                                                <td style="width: 50%;text-align:left">:</td>
-                                              </tr>
-                                              <tr style="">
-                                                <td style="width: 50%;text-align:left">Revisi</td>
-                                                <td style="width: 50%;text-align:left">:</td>
-                                              </tr>
-                                              <tr>
-                                                <td style="width: 50%;text-align:left">Hal.</td>
-                                                <td style="width: 50%;text-align:left">: dari 1</td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
+                              <td style="width:100%;padding-right:0px;padding-left:0px;text-align: center; vertical-align: middle;">
+                                <div align="center" style="line-height:10px"><img alt="Logo KRS" src="<?= base_url('assets/img/logo/logo_KRS_1.png') ?>" style="display: block; height: auto; border: 0; width: 675px; max-width: 100%;" title="Logo KRS" width="675" /></div>
                               </td>
                             </tr>
                           </table>
@@ -151,15 +88,25 @@
                   <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
                     <tbody>
                       <tr>
-                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-                          <table border="0" cellpadding="10" cellspacing="0" class="divider_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="58.333333333333336%">
+                          <div class="spacer_block" style="height:70px;line-height:5px;font-size:1px;"> </div>
+                        </td>
+                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="41.666666666666664%">
+                          <table border="0" cellpadding="0" cellspacing="0" class="html_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
                             <tr>
-                              <td>
-                                <div align="center">
-                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                                    <tr>
-                                      <td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 1px solid #BBBBBB;"><span> </span></td>
-                                    </tr>
+                              <td style="padding-top:5px;padding-bottom:5px;">
+                                <div align="center" style="text-align:center;">
+                                  <table border="1" style="border-collapse: collapse; width: 100%;" cellpadding="5">
+                                    <tbody>
+                                      <tr>
+                                        <td style="width: 50%;">Kode Dok</td>
+                                        <td style="width: 50%;">F-BAK -0903</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="width: 50%;">Revisi</td>
+                                        <td style="width: 50%;">0</td>
+                                      </tr>
+                                    </tbody>
                                   </table>
                                 </div>
                               </td>
@@ -181,74 +128,13 @@
                     <tbody>
                       <tr>
                         <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-                          <table border="0" cellpadding="0" cellspacing="0" class="image_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+                          <table border="0" cellpadding="10" cellspacing="0" class="text_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
                             <tr>
-                              <td style="width:100%;text-align: center; vertical-align: middle;">
-                                <div align="center" style="line-height:10px"><img alt="Logo KRS" src="<?= base_url('assets/img/logo/logo_KRS_1.png') ?>" style="display: block; height: auto; border: 0; width: 675px; max-width: 100%;" title="Logo KRS" width="675" /></div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-5" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-            <tbody>
-              <tr>
-                <td>
-                  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
-                    <tbody>
-                      <tr>
-                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="58.333333333333336%">
-                          <div class="spacer_block" style="height:70px;line-height:5px;font-size:1px;"> </div>
-                        </td>
-                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="41.666666666666664%">
-                          <table border="0" cellpadding="0" cellspacing="0" class="html_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                            <tr>
-                              <td style="padding-top:5px;padding-bottom:5px;">
-                                <div align="center" style="text-align:center;">
-                                  <table border="1" style="border-collapse: collapse; width: 100%;" cellpadding="5" cellspacing="2">
-                                    <tbody>
-                                      <tr>
-                                        <td style="width: 50%;">Kode Dok</td>
-                                        <td style="width: 50%;">F-BAK-0701</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 50%;">Revisi</td>
-                                        <td style="width: 50%;">0</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-6" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-            <tbody>
-              <tr>
-                <td>
-                  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
-                    <tbody>
-                      <tr>
-                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-                          <table border="0" cellpadding="10" cellspacing="0" class="text_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word; text-align: center; vertical-align: middle;" width="100%">
-                            <tr>
-                              <td>
-                                <div>
-                                  <div style="font-size: 18px; mso-line-height-alt: 16.8px; color: #000; line-height: 1.2; ">
-                                    <p style="margin: 0; font-size: 18px; text-align: center;"><span style="font-size:24px;"><strong>KARTU RENCANA STUDI</strong></span></p>
+                              <td style="text-align: center; vertical-align: middle;">
+                                <div style="font-family: sans-serif">
+                                  <div style="font-size: 14px; mso-line-height-alt: 16.8px; color: #000; line-height: 1.2; ">
+                                    <p style="margin: 0; font-size: 14px; text-align: center;"><span style="font-size:16px;color:#000000;">KARTU HASIL STUDI</span></p>
+                                    <p style="margin: 0; font-size: 14px; text-align: center;"><em><span style="font-size:16px;color:#000000;"><strong>ACADEMIC REPORT CARD</strong></span></em></p>
                                   </div>
                                 </div>
                               </td>
@@ -262,7 +148,7 @@
               </tr>
             </tbody>
           </table>
-          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-7" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-5" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
             <tbody>
               <tr>
                 <td>
@@ -303,22 +189,18 @@
                             <tr>
                               <td style="padding-top:5px;padding-bottom:5px;">
                                 <div align="center" style="text-align:center;">
-                                  <table border="0" style="border-collapse: collapse; width: 100%;" cellpadding="5">
+                                  <table border="0" style="border-collapse: collapse; width: 100%;" cellpadding="7">
                                     <tbody>
                                       <tr>
-                                        <td style="width: 40%;text-align:left">Nama</td>
+                                        <td style="width: 40%;text-align:left">Nama<br /> <span style="font-style:italic; font-weight:bold">Name Of Student</span></td>
                                         <td style="width: 60%;text-align:left"> : Jambrong si Kuncung</td>
                                       </tr>
                                       <tr>
-                                        <td style="text-align:left">NIM</td>
+                                        <td style="text-align:left">NIM <br /> <span style="font-style:italic; font-weight:bold">Student Registration Number</span></td>
                                         <td style="text-align:left">: 12345678</td>
                                       </tr>
                                       <tr>
-                                        <td style="text-align:left">Jenjang Akademik</td>
-                                        <td style="text-align:left">: -</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="text-align:left">Semester</td>
+                                        <td style="text-align:left">Semester <span style="font-style:italic; font-weight:bold"> <br />Semester</span></td>
                                         <td style="text-align:left">: 1 (Satu)</td>
                                       </tr>
                                     </tbody>
@@ -333,24 +215,17 @@
                             <tr>
                               <td style="padding-top:5px;padding-bottom:5px;">
                                 <div align="center" style="text-align:center;">
-                                  <table border="0" style="border-collapse: collapse; width: 100%;" cellpadding="5">
+                                  <table border="0" style="border-collapse: collapse; width: 100%;" cellpadding="7">
                                     <tbody>
                                       <tr>
-                                        <td style="width: 40%;text-align:left">Program Studi</td>
+                                        <td style="width: 40%;text-align:left">Program Studi <br /> <span style="font-style:italic; font-weight:bold">Study Program </span></td>
                                         <td style="width: 60%;text-align:left"> : Manajemen Informatika</td>
                                       </tr>
                                       <tr>
-                                        <td style="text-align:left">Tahun Akademik</td>
+                                        <td style="text-align:left">Tahun Akademik <br /> <span style="font-style:italic; font-weight:bold">Academic Year </span></td>
                                         <td style="text-align:left">: 2021/2022</td>
                                       </tr>
-                                      <tr>
-                                        <td style="text-align:left">Total Kredit yang Telah di Capai</td>
-                                        <td style="text-align:left">: 35</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="text-align:left">IP Semester Lalu</td>
-                                        <td style="text-align:left">: 4.0</td>
-                                      </tr>
+
                                     </tbody>
                                   </table>
                                 </div>
@@ -383,100 +258,145 @@
                                         <th style="width: 5%;color:#fff;">No</th>
                                         <th style="width: 15;color:#fff;">Kode MK</th>
                                         <th style="width: 20;color:#fff;">Nama MK</th>
-                                        <th style="width: 10;color:#fff;">SKS</th>
-                                        <th style="width: 10;color:#fff;">Kelas</th>
-                                        <!-- <th style="width: 15;color:#fff;">Pengambilan Ke-</th>
-                                        <th style="width: 25;color:#fff;">Jadwal</th> -->
+                                        <th style="width: 10;color:#fff;">Kredit </th>
+                                        <th style="width: 10;color:#fff;">HM</th>
+                                        <th style="width: 15;color:#fff;">NA</th>
+                                        <th style="width: 25;color:#fff;">Keterangan</th>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%; text-align:center">1</td>
                                         <td style="width: 15">MK001</td>
                                         <td style="width: 20">Bahasa Indonesia</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">12</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">2</td>
                                         <td style="width: 15">MK002</td>
                                         <td style="width: 20">Matematika</td>
                                         <td style="width: 10;text-align:center">3</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">B</td>
+                                        <td style="width: 15 ;text-align:center">9</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">3</td>
                                         <td style="width: 15">MK003</td>
                                         <td style="width: 20">IPA</td>
                                         <td style="width: 10;text-align:center">2</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">B</td>
+                                        <td style="width: 15 ;text-align:center">4</td>
+                                        <td style="width: 25">Senin</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">4</td>
                                         <td style="width: 15">MK004</td>
                                         <td style="width: 20">IPS</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">12</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">5</td>
                                         <td style="width: 15">MK005</td>
                                         <td style="width: 20">Seni Budaya</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">1</td>
+                                        <td style="width: 25">Senin</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">5</td>
                                         <td style="width: 15">MK005</td>
                                         <td style="width: 20">Seni Budaya</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">12</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">5</td>
                                         <td style="width: 15">MK005</td>
                                         <td style="width: 20">Seni Budaya</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">12</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">5</td>
                                         <td style="width: 15">MK005</td>
                                         <td style="width: 20">Seni Budaya</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">1</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">5</td>
                                         <td style="width: 15">MK005</td>
                                         <td style="width: 20">Seni Budaya</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">1</td>
+                                        <td style="width: 25">Lulus</td>
                                       </tr>
                                       <tr>
                                         <td style="width: 5%;text-align:center">5</td>
                                         <td style="width: 15">MK005</td>
                                         <td style="width: 20">Seni Budaya</td>
                                         <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
+                                        <td style="width: 10;text-align:center">A</td>
+                                        <td style="width: 15 ;text-align:center">1</td>
+                                        <td style="width: 25">Lulus</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-9" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+            <tbody>
+              <tr>
+                <td>
+                  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
+                    <tbody>
+                      <tr>
+                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" class="html_block" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+                            <tr>
+                              <td>
+                                <div align="center" style="text-align:center;">
+                                  <table border="0" cellpadding="5" style="border-collapse: collapse; width: 100%;text-align:left">
+                                    <tbody>
+                                      <tr>
+                                        <td style="width: 30%;">Jumlah/Total</td>
+                                        <td style="width: 70%;">:</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Indeks Prestasi <br /> <span style="font-style:italic; font-weight:bold">Grade Point Average </span></td>
+                                        <td>:</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Total SKS <br /> <span style="font-style:italic; font-weight:bold">Total Credit </span></td>
+                                        <td>:</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Indeks Prestasi Komulatif <br /> <span style="font-style:italic; font-weight:bold">Cumulative Grade Point Average </span></td>
+                                        <td>:</td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -499,23 +419,6 @@
                   <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
                     <tbody>
                       <tr>
-                        <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-                          <div class="spacer_block" style="height:60px;line-height:60px;font-size:1px;"> </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-11" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-            <tbody>
-              <tr>
-                <td>
-                  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 900px;" width="900">
-                    <tbody>
-                      <tr>
                         <td class="column" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="58.333333333333336%">
                           <div class="spacer_block" style="height:70px;line-height:5px;font-size:1px;"> </div>
                         </td>
@@ -524,16 +427,17 @@
                             <tr>
                               <td style="padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
                                 <div>
-                                  <div style="font-size: 14px; mso-line-height-alt: 16.8px; color: #000; line-height: 1.2;">
-                                    <p style="margin: 0; font-size: 14px;">Mengetahui</p>
-                                    <p style="margin: 0; font-size: 14px;">Pembimbing Akademik</p>
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-
-                                    <p style="margin: 0; font-size: 14px;">............................................................</p>
+                                  <div style="font-size: 14px; mso-line-height-alt: 16.8px; color: #000; line-height: 1.2; ">
+                                    <p style="margin: 0; font-size: 14px;">Lampung Utara,12 Februari 2022</p>
+                                    <p style="margin: 0; font-size: 14px;">Ketua,</p>
+                                    <p style="margin: 0; font-size: 14px;font-weight:bold"><em>Chairman,</em></p>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <p style="margin: 0; font-size: 14px;font-weight:bold">Agung Hardiyanto</p>
+                                    <p style="margin: 0; font-size: 14px;">NIK:199508182022031001</p>
                                   </div>
                                 </div>
                               </td>
@@ -547,6 +451,7 @@
               </tr>
             </tbody>
           </table>
+
         </td>
       </tr>
     </tbody>

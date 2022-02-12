@@ -92,7 +92,8 @@ $route['admin/master/users/update/(:any)/(:any)']   = 'Admin_users/update/$1/$2'
 
 
 
-$route['pdf']                                       = 'PrintPdf';
+$route['pdf/krs']                                       = 'PrintPdf/krs';
+$route['pdf/khs']                                       = 'PrintPdf/khs';
 
 
 /* ================MAHASISWA ROLE======================== */
