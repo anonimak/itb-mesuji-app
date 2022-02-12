@@ -98,6 +98,15 @@ $route['pdf']                                       = 'PrintPdf';
 /* ================MAHASISWA ROLE======================== */
 $route['mahasiswa/dashboard']                       = 'mahasiswa_dashboard';
 $route['mahasiswa/profile']                         = 'mahasiswa_profile';
+$route['mahasiswa/krs']                             = 'mahasiswa_krs';
+
+
+// API
+$route['mahasiswa/api/krs/krs-info']['get']                 = 'mahasiswa_api/getKrsInfo';
+$route['mahasiswa/api/krs/course']['get']                   = 'mahasiswa_api/getKrsCourse';
+$route['mahasiswa/api/krs/add-course']['post']              = 'mahasiswa_api/insertToCurrentCourse';
+$route['mahasiswa/api/krs/remove-course/(:any)']['get']     = 'mahasiswa_api/removeCurrentCourse/$1';
+$route['mahasiswa/api/krs/submit-krs/(:any)']['get']        = 'mahasiswa_api/submitKrs/$1';
 
 
 

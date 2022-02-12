@@ -95,6 +95,7 @@ function outputJson($response, $status_header = 200)
 function pretty_dump($data)
 {
     echo '<pre>' . var_export($data, true) . '</pre>';
+    die();
 }
 
 function unsetFlash()
