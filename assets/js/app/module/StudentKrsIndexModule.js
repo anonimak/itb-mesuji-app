@@ -97,12 +97,16 @@ export default (function () {
 				generateRowsTableCourseTaken();
 				// check status jika bukan edited
 				if (data.krsInfo.status != "edit") {
-					ButtonAddCourse.hide();
-					ButtonModalCourse.hide();
-					ButtonSubmitKrs.hide();
+					ButtonAddCourse.addClass("d-none");
+					ButtonModalCourse.addClass("d-none");
+					ButtonSubmitKrs.addClass("d-none");
 					let strStatus =
 						data.krsInfo.status == "unverified" ? "Submitted" : "Verified";
 					context.populate("status", strStatus);
+				} else {
+					ButtonAddCourse.removeClass("d-none");
+					ButtonModalCourse.removeClass("d-none");
+					ButtonSubmitKrs.removeClass("d-none");
 				}
 				if (data.courseTaken.length <= 0) {
 					ButtonSubmitKrs.prop("disabled", true);
