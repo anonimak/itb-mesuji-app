@@ -30,9 +30,6 @@
         <?php endif; ?>
         <div class="alert alert-info alert-dismissible fade show mt-5" role="alert">
             Pendaftaran perencanaan KRS dibuka hingga tanggal <strong><?= $akademik->last_register_krs ?></strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <i class="ik ik-x"></i>
-            </button>
         </div>
         <div class="row">
             <div class="col-12">
@@ -41,7 +38,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <span class="badge badge-info attr-data-status"></span>
-                                <button type="button" class="btn btn-primary float-right submit-krs">Submit KRS</button>
+                                <button type="button" class="btn btn-primary float-right submit-krs d-none">Submit KRS</button>
                             </div>
                             <div class="col-12 mt-4">
                                 <div class="text-center">
@@ -139,7 +136,7 @@
 
                                     </tbody>
                                 </table>
-                                <button id="btn-modal-course" class="btn btn-primary" data-toggle="modal" data-target="#modal-choose-course">
+                                <button id="btn-modal-course" class="btn btn-primary d-none" data-toggle="modal" data-target="#modal-choose-course">
                                     Tambah Matakuliah
                                 </button>
                             </div>
