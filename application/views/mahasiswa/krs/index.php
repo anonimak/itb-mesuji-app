@@ -38,6 +38,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <span class="badge badge-info attr-data-status"></span>
+                                <?php if ($currentKrs->status === 'verified' || $currentKrs->status === 'unverified') : ?>
+                                    <a href="<?= base_url('pdf/krs'); ?>" class="btn btn-danger btn-sm" target="__blank">Cetak KRS</a>
+                                <?php endif; ?>
                                 <button type="button" class="btn btn-primary float-right submit-krs d-none">Submit KRS</button>
                             </div>
                             <div class="col-12 mt-4">

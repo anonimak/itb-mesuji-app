@@ -12,6 +12,8 @@
             $this->tableCourse = 'course';
             $this->tableProdi = 'prodi';
             $this->tableAcademicYear = 'academic_year';
+            //TAMBAHAN DARI AGUNG
+            $this->tableLecture = 'lecture';
         }
 
         public function getActiveAcademicYear()
@@ -28,10 +30,11 @@
 
         public function getKrsCurrent($academicYearId, $studentId)
         {
-            $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
+            $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester,e.name lecture');
             $this->db->join($this->tableStudent . ' b', 'a.student_id=b.id', 'LEFT');
             $this->db->join($this->tableAcademicYear . ' c', 'a.academic_year_id=c.id', 'LEFT');
             $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
+            $this->db->join($this->tableLecture . ' e', ' b.lecture_id=e.id', 'LEFT');
             $this->db->where('a.academic_year_id', $academicYearId);
             return $this->db->get_where($this->table . ' a', ['a.student_id' => $studentId]);
         }

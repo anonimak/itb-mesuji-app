@@ -17,11 +17,16 @@ class Mahasiswa_krs extends CI_Controller
     {
         // cek tahun akademik aktif
         $akademik = $this->Krs->getActiveAcademicYear();
-
+        $student = $this->session->userdata('username');
+        // check current krs
+        $currentKrs = $this->Krs->getKrsCurrent($akademik->id, $student->id)->row();
+        // var_dump($currentKrs);
+        // die;
         $data = [
             'title'         => 'Buat KRS',
             'desc'          => 'Berfungsi untuk membuat krs',
-            'akademik'      => $akademik
+            'akademik'      => $akademik,
+            'currentKrs'    => $currentKrs,
         ];
         $page       = '/mahasiswa/krs/index';
         if (date("Y-m-d") > $akademik->last_register_krs) {

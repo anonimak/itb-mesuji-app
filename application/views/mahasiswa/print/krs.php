@@ -115,16 +115,16 @@
                                                 <td style="width: 50%;text-align:left">: SOP-BAK-007</td>
                                               </tr>
                                               <tr style="">
-                                                <td style="width: 50%;text-align:left">Tanggal</td>
-                                                <td style="width: 50%;text-align:left">:</td>
+                                                <td style="width: 50%;text-align:left">Tanggal Cetak</td>
+                                                <td style="width: 50%;text-align:left">: <?= date('d-m-Y') ?></td>
                                               </tr>
                                               <tr style="">
                                                 <td style="width: 50%;text-align:left">Revisi</td>
-                                                <td style="width: 50%;text-align:left">:</td>
+                                                <td style="width: 50%;text-align:left">: -</td>
                                               </tr>
                                               <tr>
                                                 <td style="width: 50%;text-align:left">Hal.</td>
-                                                <td style="width: 50%;text-align:left">: dari 1</td>
+                                                <td style="width: 50%;text-align:left">: 1 dari 1</td>
                                               </tr>
                                             </tbody>
                                           </table>
@@ -307,19 +307,19 @@
                                     <tbody>
                                       <tr>
                                         <td style="width: 40%;text-align:left">Nama</td>
-                                        <td style="width: 60%;text-align:left"> : Jambrong si Kuncung</td>
+                                        <td style="width: 60%;text-align:left"> : <?= $student->fullname; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">NIM</td>
-                                        <td style="text-align:left">: 12345678</td>
+                                        <td style="text-align:left">: <?= $student->npm; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">Jenjang Akademik</td>
-                                        <td style="text-align:left">: -</td>
+                                        <td style="text-align:left">: <?= $student->degree; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">Semester</td>
-                                        <td style="text-align:left">: 1 (Satu)</td>
+                                        <td style="text-align:left">: <?= $student->semester; ?></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -337,19 +337,19 @@
                                     <tbody>
                                       <tr>
                                         <td style="width: 40%;text-align:left">Program Studi</td>
-                                        <td style="width: 60%;text-align:left"> : Manajemen Informatika</td>
+                                        <td style="width: 60%;text-align:left"> : <?= $student->prodi_name; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">Tahun Akademik</td>
-                                        <td style="text-align:left">: 2021/2022</td>
+                                        <td style="text-align:left">: <?= $student->academic_year_name; ?> </td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">Total Kredit yang Telah di Capai</td>
-                                        <td style="text-align:left">: 35</td>
+                                        <td style="text-align:left">: <?= $student->total_kredit; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">IP Semester Lalu</td>
-                                        <td style="text-align:left">: 4.0</td>
+                                        <td style="text-align:left">: <?= $student->ip; ?></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -383,101 +383,24 @@
                                         <th style="width: 5%;color:#fff;">No</th>
                                         <th style="width: 15;color:#fff;">Kode MK</th>
                                         <th style="width: 20;color:#fff;">Nama MK</th>
+                                        <th style="width: 10;color:#fff;">Semester</th>
                                         <th style="width: 10;color:#fff;">SKS</th>
-                                        <th style="width: 10;color:#fff;">Kelas</th>
                                         <!-- <th style="width: 15;color:#fff;">Pengambilan Ke-</th>
                                         <th style="width: 25;color:#fff;">Jadwal</th> -->
                                       </tr>
-                                      <tr>
-                                        <td style="width: 5%; text-align:center">1</td>
-                                        <td style="width: 15">MK001</td>
-                                        <td style="width: 20">Bahasa Indonesia</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
+                                      <?php $i = 1;
+                                      foreach ($student->course_takens as $courseTaken) : ?>
+                                        <tr>
+                                          <td style="width: 5%; text-align:center"><?= $i++; ?></td>
+                                          <td style="width: 15"><?= $courseTaken->code; ?></td>
+                                          <td style="width: 20"><?= $courseTaken->name; ?></td>
+                                          <td style="width: 10;text-align:center"><?= $courseTaken->semester; ?></td>
+                                          <td style="width: 10;text-align:center"><?= $courseTaken->sks; ?></td>
+                                          <!-- <td style="width: 15 ;">1</td>
                                         <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">2</td>
-                                        <td style="width: 15">MK002</td>
-                                        <td style="width: 20">Matematika</td>
-                                        <td style="width: 10;text-align:center">3</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">3</td>
-                                        <td style="width: 15">MK003</td>
-                                        <td style="width: 20">IPA</td>
-                                        <td style="width: 10;text-align:center">2</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">4</td>
-                                        <td style="width: 15">MK004</td>
-                                        <td style="width: 20">IPS</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">1 A</td>
-                                        <!-- <td style="width: 15 ;">1</td>
-                                        <td style="width: 25">Senin</td> -->
-                                      </tr>
+                                        </tr>
+                                      <?php endforeach; ?>
+
                                     </tbody>
                                   </table>
                                 </div>
@@ -533,7 +456,7 @@
                                     <br />
                                     <br />
 
-                                    <p style="margin: 0; font-size: 14px;">............................................................</p>
+                                    <p style="margin: 0; font-size: 14px;"><?= $student->lecture; ?></p>
                                   </div>
                                 </div>
                               </td>
