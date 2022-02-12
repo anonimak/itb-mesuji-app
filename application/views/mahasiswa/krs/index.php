@@ -136,38 +136,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>TEST</td>
-                                            <td>Matematika 1</td>
-                                            <td>4</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>
-                                                <a href="#" class="text-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item btn-remove-item-course-taken" href="#">Hapus</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>TEST</td>
-                                            <td>Matematika 1</td>
-                                            <td>4</td>
-                                            <td>4</td>
-                                            <td>1</td>
-                                            <td>
-                                                <a href="#" class="text-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item btn-remove-item" href="#">Hapus</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                                 <button id="btn-modal-course" class="btn btn-primary" data-toggle="modal" data-target="#modal-choose-course">

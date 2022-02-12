@@ -20,6 +20,7 @@ class Mahasiswa_api extends CI_Controller
 
         // check current krs
         $currenkrs = $this->Krs->getKrsCurrent($active_academic->id, $student->id)->row();
+        // pretty_dump($currenkrs);
         $latestkrs = $this->Krs->getKrsLatestSemester($student->id)->row();
         $getsumkredit = $this->Krs->getSumKredit($student->id);
         if (!$currenkrs) {

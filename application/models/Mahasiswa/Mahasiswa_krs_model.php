@@ -33,7 +33,7 @@
             $this->db->join($this->tableAcademicYear . ' c', 'a.academic_year_id=c.id', 'LEFT');
             $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
             $this->db->where('a.academic_year_id', $academicYearId);
-            return $this->db->get($this->table . ' a', ['a.student_id' => $studentId]);
+            return $this->db->get_where($this->table . ' a', ['a.student_id' => $studentId]);
         }
 
         public function getKrsCurrentCourseTaken($academicYearId, $studentId)
@@ -70,7 +70,7 @@
         public function getKrsCoursesOddEven($prodiId, $semesteracademic, $studentId)
         {
 
-            $strOddEven = ($semesteracademic == 'genap') ? "(semester % 2) = 0" : "(semester % 2) > 0";
+            $strOddEven = ($semesteracademic == 'Genap') ? "(semester % 2) = 0" : "(semester % 2) > 0";
             return $this->db->query("SELECT * FROM `course` 
                                 WHERE `prodi_id` = '$prodiId'
                                 AND `id` 
