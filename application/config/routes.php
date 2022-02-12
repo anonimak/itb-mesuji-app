@@ -92,6 +92,8 @@ $route['admin/master/users/update/(:any)/(:any)']   = 'Admin_users/update/$1/$2'
 
 
 
+$route['pdf']                                       = 'PrintPdf';
+
 
 /* ================MAHASISWA ROLE======================== */
 $route['mahasiswa/dashboard']                       = 'mahasiswa_dashboard';
