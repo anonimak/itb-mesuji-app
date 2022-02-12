@@ -94,7 +94,7 @@
             $this->db->where('a.status', 'verified');
             $this->db->limit(1);
             $this->db->order_by('a.semester', 'DESC');
-            return $this->db->get($this->table . ' a', ['a.student_id' => $studentId]);
+            return $this->db->get_where($this->table . ' a', ['a.student_id' => $studentId]);
         }
 
         public function getSumKrs($studentId)
@@ -102,7 +102,7 @@
             $this->db->select('sum(kredit) total_kredit, (sum(ip)/ count(ip)) ipk');
             $this->db->where('status', 'verified');
             $this->db->group_by('student_id');
-            $query = $this->db->get($this->table, ['student_id' => $studentId]);
+            $query = $this->db->get_where($this->table, ['student_id' => $studentId]);
             return $query->row();
         }
 
