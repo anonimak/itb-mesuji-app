@@ -50,7 +50,7 @@
                                             <td><?= $item->academic_year_name . " " . $item->academic_year_semester; ?></td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <a href="<?= base_url('mahasiswa/khs/pdf/' . encodeEncrypt($item->id)) ?>" class="btn btn-primary"><i class="ik ik-file"></i>Cetak KHS</a>
+                                                    <a href="<?= base_url('pdf/khs/' . encodeEncrypt($item->id)) ?>" class="btn btn-primary"><i class="ik ik-file"></i>Cetak KHS</a>
                                                 </div>
                                             </td>
                                         </tr>

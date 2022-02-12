@@ -38,7 +38,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <a href="<?= base_url('mahasiswa/khs') ?>" class="btn btn-secondary float-right ml-2">Kembali</a>
-                                <button type="button" class="btn btn-primary float-right submit-krs"><i class="ik ik-file"></i>Cetak KHS</button>
+                                <?php if ($score > 0) : ?>
+                                    <a href="<?= base_url('pdf/khs/' . $this->uri->segment(4)) ?>" class="btn btn-primary float-right submit-krs" target="__blank"><i class="ik ik-file"></i>Cetak KHS</a>
+                                <?php endif; ?>
                             </div>
                             <div class="col-12 mt-4">
                                 <div class="text-center">

@@ -16,7 +16,6 @@ class Mahasiswa_khs extends CI_Controller
     public function index()
     {
         $student = $this->session->userdata('username');
-
         $dataKhs = $this->Khs->getKhs($student->id);
         $data = [
             'title'         => 'Data KHS',
@@ -31,18 +30,21 @@ class Mahasiswa_khs extends CI_Controller
     {
         $id   = decodeEncrypt($id);
         $student = $this->session->userdata('username');
-
         $getsumkrs = $this->Khs->getSumKrs($student->id);
         $dataKhs = $this->Khs->getKhsbyId($id, $student->id)->row();
         $dataKhs->total_kredit = ($getsumkrs) ? $getsumkrs->total_kredit : 0;
         $dataKhs->ipk = ($getsumkrs) ? floor($getsumkrs->ipk * 100) / 100 : 0;
         $detailKhs = $this->Khs->getKhsCourseTakenbyKhsId($dataKhs->id)->result();
-
+        $score  = 0;
+        foreach ($detailKhs as $detail) {
+            $score += (int)$detail->score;
+        }
         $data = [
             'title'         => 'Semester ' . $dataKhs->semester,
             'desc'          => 'Berfungsi untuk melihat detail khs Semester ' . $dataKhs->semester,
             'dataKhs'       => $dataKhs,
-            'detailKhs'     => $detailKhs
+            'detailKhs'     => $detailKhs,
+            'score'         => $score
         ];
         $page       = '/mahasiswa/khs/detail/index';
 

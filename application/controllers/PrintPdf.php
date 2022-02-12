@@ -7,7 +7,6 @@ class PrintPdf extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Mahasiswa/Mahasiswa_krs_model', 'Krs');
-    $this->load->model('Auth_model', 'Auth');
     $this->role = 'mahasiswa';
     cek_login('Mahasiswa');
   }
@@ -36,12 +35,33 @@ class PrintPdf extends CI_Controller
     $mpdf->Output('KRS Semester ' . $data['student']->semester . ' - ' . $data['student']->fullname . '.pdf', 'D');
   }
 
-  public function khs()
+  public function khs($id)
   {
-    $mpdf   = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
-    $view   = $this->load->view('mahasiswa/print/khs', [], TRUE);
-    $mpdf->SetProtection(array('print'));
-    $mpdf->WriteHTML($view);
-    $mpdf->Output('KHS Semester 1 - Agung Hardiyanto.pdf', 'D');
+    $id   = decodeEncrypt($id);
+    $student = $this->session->userdata('username');
+    $getsumkrs = $this->Krs->getSumKrs($student->id);
+    $dataKhs = $this->Krs->getKhsbyId($id, $student->id)->row();
+    $dataKhs->total_kredit = ($getsumkrs) ? $getsumkrs->total_kredit : 0;
+    $dataKhs->ipk = ($getsumkrs) ? floor($getsumkrs->ipk * 100) / 100 : 0;
+    $detailKhs = $this->Krs->getKhsCourseTakenbyKhsId($dataKhs->id)->result();
+    $score  = 0;
+    foreach ($detailKhs as $detail) {
+      $score += (int)$detail->score;
+    }
+    if ($score <= 0) {
+      $this->session->set_flashdata('error', 'Data KHS Belum di inputkan oleh admin');
+      redirect('mahasiswa/khs');
+    } else {
+
+      $data = [
+        'dataKhs'       => $dataKhs,
+        'detailKhs'     => $detailKhs,
+      ];
+      $mpdf   = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
+      $view   = $this->load->view('mahasiswa/print/khs', $data, TRUE);
+      $mpdf->SetProtection(array('print'));
+      $mpdf->WriteHTML($view);
+      $mpdf->Output('KHS Semester 1 - Agung Hardiyanto.pdf', 'D');
+    }
   }
 }

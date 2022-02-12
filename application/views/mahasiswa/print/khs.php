@@ -193,15 +193,15 @@
                                     <tbody>
                                       <tr>
                                         <td style="width: 40%;text-align:left">Nama<br /> <span style="font-style:italic; font-weight:bold">Name Of Student</span></td>
-                                        <td style="width: 60%;text-align:left"> : Jambrong si Kuncung</td>
+                                        <td style="width: 60%;text-align:left"> : <?= $dataKhs->fullname; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">NIM <br /> <span style="font-style:italic; font-weight:bold">Student Registration Number</span></td>
-                                        <td style="text-align:left">: 12345678</td>
+                                        <td style="text-align:left">: <?= $dataKhs->npm; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">Semester <span style="font-style:italic; font-weight:bold"> <br />Semester</span></td>
-                                        <td style="text-align:left">: 1 (Satu)</td>
+                                        <td style="text-align:left">: <?= $dataKhs->semester; ?></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -219,11 +219,11 @@
                                     <tbody>
                                       <tr>
                                         <td style="width: 40%;text-align:left">Program Studi <br /> <span style="font-style:italic; font-weight:bold">Study Program </span></td>
-                                        <td style="width: 60%;text-align:left"> : Manajemen Informatika</td>
+                                        <td style="width: 60%;text-align:left"> : <?= $dataKhs->prodi_name; ?></td>
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">Tahun Akademik <br /> <span style="font-style:italic; font-weight:bold">Academic Year </span></td>
-                                        <td style="text-align:left">: 2021/2022</td>
+                                        <td style="text-align:left">: <?= $dataKhs->academic_year_name; ?>-<?= $dataKhs->academic_year_semester; ?></td>
                                       </tr>
 
                                     </tbody>
@@ -263,96 +263,19 @@
                                         <th style="width: 15;color:#fff;">NA</th>
                                         <th style="width: 25;color:#fff;">Keterangan</th>
                                       </tr>
-                                      <tr>
-                                        <td style="width: 5%; text-align:center">1</td>
-                                        <td style="width: 15">MK001</td>
-                                        <td style="width: 20">Bahasa Indonesia</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">12</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">2</td>
-                                        <td style="width: 15">MK002</td>
-                                        <td style="width: 20">Matematika</td>
-                                        <td style="width: 10;text-align:center">3</td>
-                                        <td style="width: 10;text-align:center">B</td>
-                                        <td style="width: 15 ;text-align:center">9</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">3</td>
-                                        <td style="width: 15">MK003</td>
-                                        <td style="width: 20">IPA</td>
-                                        <td style="width: 10;text-align:center">2</td>
-                                        <td style="width: 10;text-align:center">B</td>
-                                        <td style="width: 15 ;text-align:center">4</td>
-                                        <td style="width: 25">Senin</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">4</td>
-                                        <td style="width: 15">MK004</td>
-                                        <td style="width: 20">IPS</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">12</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">1</td>
-                                        <td style="width: 25">Senin</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">12</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">12</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">1</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">1</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
-                                      <tr>
-                                        <td style="width: 5%;text-align:center">5</td>
-                                        <td style="width: 15">MK005</td>
-                                        <td style="width: 20">Seni Budaya</td>
-                                        <td style="width: 10;text-align:center">4</td>
-                                        <td style="width: 10;text-align:center">A</td>
-                                        <td style="width: 15 ;text-align:center">1</td>
-                                        <td style="width: 25">Lulus</td>
-                                      </tr>
+                                      <?php $i = 1;
+                                      foreach ($detailKhs as $detail) : ?>
+                                        <tr>
+                                          <td style="width: 5%; text-align:center"><?= $i++; ?></td>
+                                          <td style="width: 15"><?= $detail->code; ?></td>
+                                          <td style="width: 20"><?= $detail->name; ?></td>
+                                          <td style="width: 10;text-align:center"><?= $detail->sks; ?></td>
+                                          <td style="width: 10;text-align:center"><?= $detail->grade; ?></td>
+                                          <td style="width: 15 ;text-align:center"><?= $detail->score; ?></td>
+                                          <td style="width: 25"><?= $detail->description; ?></td>
+                                        </tr>
+
+                                      <?php endforeach; ?>
                                     </tbody>
                                   </table>
                                 </div>
@@ -388,15 +311,15 @@
                                       </tr>
                                       <tr>
                                         <td>Indeks Prestasi <br /> <span style="font-style:italic; font-weight:bold">Grade Point Average </span></td>
-                                        <td>:</td>
+                                        <td>: <?= $dataKhs->ip; ?></td>
                                       </tr>
                                       <tr>
                                         <td>Total SKS <br /> <span style="font-style:italic; font-weight:bold">Total Credit </span></td>
-                                        <td>:</td>
+                                        <td>: <?= $dataKhs->total_kredit; ?></td>
                                       </tr>
                                       <tr>
                                         <td>Indeks Prestasi Komulatif <br /> <span style="font-style:italic; font-weight:bold">Cumulative Grade Point Average </span></td>
-                                        <td>:</td>
+                                        <td>: <?= $dataKhs->ipk; ?></td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -436,8 +359,8 @@
                                     <br>
                                     <br>
                                     <br>
-                                    <p style="margin: 0; font-size: 14px;font-weight:bold">Agung Hardiyanto</p>
-                                    <p style="margin: 0; font-size: 14px;">NIK:199508182022031001</p>
+                                    <p style="margin: 0; font-size: 14px;font-weight:bold"><?= $dataKhs->lecture; ?></p>
+                                    <p style="margin: 0; font-size: 14px;">NIK:</p>
                                   </div>
                                 </div>
                               </td>
