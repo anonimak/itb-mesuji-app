@@ -32,10 +32,10 @@
           <div class="card-body">
             <form action="" method="POST">
               <div class="row">
-
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="name">NPM</label>
+                    <input type="hidden" name="studentId" id="studentId" value="<?= $student->id; ?>">
                     <input type="text" class="form-control <?= form_error('npm') ? 'is-invalid' : ''; ?>" id="npm" placeholder="Masukan npm" name="npm" value="<?= set_value('npm') ? set_value('npm') : $student->npm; ?>">
                     <div class="invalid-feedback">
                       <?= form_error('npm'); ?>
@@ -90,14 +90,6 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="address">Alamat</label>
-                    <textarea id="address" name="address" class="form-control <?= form_error('address') ? 'is-invalid' : ''; ?>" rows="4" cols="50"><?= set_value('address') ? set_value('address') : $student->address; ?></textarea>
-                    <div class="invalid-feedback">
-                      <?= form_error('address'); ?>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
                     <label for="nohp">Nomor HP</label>
                     <input type="text" class="form-control <?= form_error('nohp') ? 'is-invalid' : ''; ?>" id="nohp" placeholder="Masukan Nomor Hp" name="nohp" value="<?= set_value('nohp') ? set_value('nohp') : $student->no_hp ?>">
                     <div class="invalid-feedback">
@@ -107,16 +99,36 @@
 
                   <div class="form-group">
                     <label for="prodi">Pilih Prodi</label>
-                    <select class="get-prodi form-control <?= form_error('prodi') ? 'is-invalid' : ''; ?>" name="prodi" id="prodi" style="width: 100%">
-                      <option value="<?= $student->prodi_id; ?>"><?= $student->major_name . ' - ' . $student->prodi_name; ?></option>
+                    <select class="get-program-study form-control <?= form_error('prodi') ? 'is-invalid' : ''; ?>" name="prodi" id="prodi" style="width: 100%">
+                      <option value=""></option>
+                      <?php foreach ($allprodi as $prodi) : ?>
+                        <option value="<?= $prodi->id; ?>"> <?= $prodi->major . ' - ' . $prodi->name; ?> </option>
+                      <?php endforeach; ?>
                     </select>
                     <div class="invalid-feedback">
                       <?= form_error('prodi'); ?>
                     </div>
                   </div>
+                  <input type="hidden" name="lectureid" id="lectureid" value="<?= $student->lecture_id; ?>">
+                  <div class="form-group">
+                    <label for="dosen-pembimbing">Pilih Dosen Pembimbing</label>
+                    <select class="get-dosen-pembimbing form-control <?= form_error('dosen-pembimbing') ? 'is-invalid' : ''; ?>" name="dosen-pembimbing" id="dosen-pembimbing" style="width: 100%">
+                      <option></option>
+                    </select>
+                    <div class="invalid-feedback">
+                      <?= form_error('dosen-pembimbing'); ?>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Alamat</label>
+                    <textarea id="address" name="address" class="form-control <?= form_error('address') ? 'is-invalid' : ''; ?>" rows="4" cols="50"><?= set_value('address') ? set_value('address') : $student->address; ?></textarea>
+                    <div class="invalid-feedback">
+                      <?= form_error('address'); ?>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary"><i class="ik ik-save"></i>Simpan</button>
+              <button type="submit" class="btn btn-primary"><i class="ik ik-save"></i>Update</button>
               <a href="<?= base_url('admin/master/student') ?>" class="btn btn-danger"><i class="ik ik-skip-back"></i>Kembali</a>
             </form>
           </div>

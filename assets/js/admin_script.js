@@ -127,19 +127,34 @@ $(document).ready(function () {
 
 	$('.get-program-study').change(function() {
 		var prodiId = $(this).val();
+		var lectureId	= $('#lectureid').val();
 		$.ajax({
 				type: "POST",
 				url: `${base_url}/admin/master/student/getDosenPembimbing`,
 				data: {
-					prodiId: prodiId
+					prodiId: prodiId,
+					lectureId:lectureId
 				},
 				dataType: "JSON",
 				success: function(response) {
 						$('.get-dosen-pembimbing').html(response);
 				}
 		});
-});
+	});
 
+	var studentId = $('#studentId').val();
+	var url				= `${base_url}admin/master/student/byid/${studentId}`;
+	
+	$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "JSON",
+			success: function(response) {
+				console.log(response);
+				$('.get-program-study').val(response.prodi_id).trigger('change');
+				$('.get-dosen-pembimbing').val(response.lecture_id).trigger('change');
+			}
+	});
 	
 
 	

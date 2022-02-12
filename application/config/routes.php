@@ -58,6 +58,7 @@ $route['admin/master/student/export']               = 'admin_students/export'; /
 $route['admin/master/student/resetpassword/(:any)'] = 'admin_students/resetpassword/$1';
 $route['admin/master/student/krs/(:any)']           = 'admin_students/krs/$1';
 $route['admin/master/student/getDosenPembimbing']   = 'admin_students/getDosenPembimbing';
+$route['admin/master/student/byid/(:any)']          = 'admin_students/byid/$1';
 
 
 //LECTURE

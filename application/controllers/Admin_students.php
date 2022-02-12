@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
+use Mpdf\Tag\P;
 
 class Admin_students extends CI_Controller
 {
@@ -51,6 +52,7 @@ class Admin_students extends CI_Controller
 				'email'             => htmlspecialchars($this->input->post('email')),
 				'password'					=> password_hash('123456', PASSWORD_DEFAULT),
 				'prodi_id'          => htmlspecialchars($this->input->post('prodi')),
+				'lecture_id'				=> htmlspecialchars($this->input->post('dosen-pembimbing')),
 				'address'           => htmlspecialchars($this->input->post('address')),
 				'birth_date'        => htmlspecialchars($this->input->post('birthdate')),
 				'no_hp'             => htmlspecialchars($this->input->post('nohp')),
@@ -76,6 +78,7 @@ class Admin_students extends CI_Controller
 			$this->_validation($oldNpm, $student->email);
 			if ($this->form_validation->run() === false) {
 				$data = [
+					'allprodi'			=> $this->Student->getProdi()->result(),
 					'title'         => 'Ubah Data Mahasiswa',
 					'desc'          => 'Berfungsi untuk mengubah Data Mahasiswa',
 					'student'       => $student,
@@ -89,6 +92,7 @@ class Admin_students extends CI_Controller
 					'npm'           => $npm,
 					'email'         => htmlspecialchars($this->input->post('email')),
 					'prodi_id'      => htmlspecialchars($this->input->post('prodi')),
+					'lecture_id'		=> htmlspecialchars($this->input->post('dosen-pembimbing')),
 					'address'       => htmlspecialchars($this->input->post('address')),
 					'birth_date'    => htmlspecialchars($this->input->post('birthdate')),
 					'no_hp'         => htmlspecialchars($this->input->post('nohp')),
@@ -242,12 +246,24 @@ class Admin_students extends CI_Controller
 	public function getDosenPembimbing()
 	{
 		$prodiId = $this->input->post('prodiId');
+		$lectureId	= $this->input->post('lectureId');
 		$data = $this->Lecture->getDataBy(['prodi_id' => $prodiId])->result();
 		$output = '<option value=""></option>';
 		foreach ($data as $row) {
-			$output .= '<option value="' . $row->id . '"> ' . $row->name . '</option>';
+			if ($lectureId === $row->id) {
+				$output .= '<option value="' . $row->id . '" selected> ' . $row->name . '</option>';
+			} else {
+				$output .= '<option value="' . $row->id . '"> ' . $row->name . '</option>';
+			}
+			// $output .= '<option value="' . $row->id . '"> ' . $row->name . '</option>';
 		}
 		$this->output->set_content_type('application/json')->set_output(json_encode($output));
+	}
+
+	public function byid($studentId)
+	{
+		$student    = $this->Student->getDataBy(['a.id' => $studentId])->row();
+		outputJson($student);
 	}
 
 	private function _validation($npm = null, $email = null)
