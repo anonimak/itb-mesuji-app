@@ -9,7 +9,7 @@
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../icon.ico" type="image/x-icon" />
 
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -27,7 +27,7 @@
     <div class="container-fluid h-100">
       <div class="row flex-row h-100 bg-white">
         <div class="col-xl-8 col-lg-6 col-md-5 p-0 d-md-block d-lg-block d-sm-none d-none">
-          <div class="lavalite-bg" style="background-image: url('https://pmb.polinela.ac.id/wp-content/uploads/2021/01/pmb-polinela-1.jpg')">
+          <div class="lavalite-bg" style="background-image: url('<?= base_url('assets/') ?>img/auth/background.jpg')">
             <div class="lavalite-overlay"></div>
           </div>
         </div>
