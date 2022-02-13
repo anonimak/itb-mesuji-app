@@ -95,7 +95,7 @@
                                 AND $strOddEven");
         }
 
-        public function getKrsbyStudentId($studentId)
+        public function getlatestKrsbyStudentId($studentId)
         {
             $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
             $this->db->join($this->tableStudent . ' b', 'a.student_id=b.id', 'LEFT');
@@ -122,7 +122,7 @@
 
         public function getSumKrs($studentId, $semester = null)
         {
-            $this->db->select('sum(kredit) total_kredit, (sum(ip)/ count(ip)) ipk');
+            $this->db->select('sum(kredit) total_kredit, ROUND(sum(ip)/ count(ip),2) ipk');
             $this->db->where('status', 'verified');
             if ($semester)
                 $this->db->where('semester <', $semester);
@@ -164,9 +164,7 @@
         {
             $this->db->set('id', 'UUID()', FALSE);
             $this->db->insert($this->table, $data);
-            $insert_id = $this->db->insert_id();
-
-            return  $insert_id;
+            return $this->db->affected_rows();
         }
 
         public function insertDetail($data)
