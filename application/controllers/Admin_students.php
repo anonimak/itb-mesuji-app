@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 use Mpdf\Tag\P;
+use Mpdf\Tag\Th;
 
 class Admin_students extends CI_Controller
 {
@@ -157,7 +158,7 @@ class Admin_students extends CI_Controller
 		$decode     = decodeEncrypt($id);
 		$student    = $this->Student->getDataBy(['a.id' => $decode])->row();
 		if ($student) {
-			$krs			= $this->Student->getDataKRSBy(['student_id' => $decode])->result();
+			$krs			= $this->Student->getDataKRSBy(['a.student_id' => $decode])->result();
 			$data = [
 				'title'         => 'KRS Mahasiswa',
 				'desc'          => 'Berfungsi untuk Melihat Data KRS Mahasiswa',
@@ -171,6 +172,45 @@ class Admin_students extends CI_Controller
 			redirect($this->redirect);
 		}
 	}
+
+	public function detailkrs($krsId)
+	{
+		$decode     = decodeEncrypt($krsId);
+		$krs    		= $this->Student->getDataKRSBy(['a.id' => $decode])->row();
+		if ($krs) {
+			$detailKrs						= $this->Student->getDataDetailKRSBy(['a.krs_id' => $decode])->result();
+			$semeterLalu					= $krs->semester - 1;
+			$ipSemesterLalu				= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id, 'a.semester' => $semeterLalu]);
+			$totalKreditTercapai	= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id]);
+			$totalKredit					= 0;
+			if ($totalKreditTercapai->num_rows() > 0) {
+				foreach ($totalKreditTercapai->result() as $skstercapai) {
+					if ($skstercapai->semester < $krs->semester) {
+						$totalKredit		+= $skstercapai->kredit;
+					}
+				}
+			}
+			if ($ipSemesterLalu->num_rows() > 0) {
+				$ipSebelumnya 	= $ipSemesterLalu->row()->ip;
+			} else {
+				$ipSebelumnya	= 0;
+			}
+			$data = [
+				'title'         => 'KRS Mahasiswa',
+				'desc'          => 'Berfungsi untuk Melihat Data KRS Mahasiswa',
+				'krs'						=> $krs,
+				'detailKrs'			=> $detailKrs,
+				'ipSebelumnya'	=> $ipSebelumnya,
+				'totalKreditTercapai'	=> $totalKredit,
+			];
+			$page = '/admin/student/detailkrs';
+			pageBackend($this->role, $page, $data);
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+			redirect($this->redirect);
+		}
+	}
+
 
 	public function import()
 	{

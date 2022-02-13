@@ -11,6 +11,9 @@ class Admin_students_model extends CI_Model
     $this->tableMajor   = 'major';
     $this->tableKrs     = 'krs';
     $this->tableTa      = 'academic_year';
+    $this->tableLecture = 'lecture';
+    $this->tableCourse  = 'course';
+    $this->tableDetailKrs = 'detail_krs';
   }
 
   public function getAllData()
@@ -102,9 +105,20 @@ class Admin_students_model extends CI_Model
   //KRS
   public function getDataKRSBy($data)
   {
-    $this->db->select('a.*,b.name as ta');
+    $this->db->select('a.*,b.name ta, b.semester ta_semester,c.fullname,c.npm,c.email,d.name lecture,e.name prodi, e.degree,f.name major');
     $this->db->join($this->tableTa . ' b', 'a.academic_year_id=b.id');
+    $this->db->join($this->table . ' c', 'a.student_id=c.id');
+    $this->db->join($this->tableLecture . ' d', 'c.lecture_id=d.id');
+    $this->db->join($this->tableProdi . ' e', 'c.prodi_id=e.id');
+    $this->db->join($this->tableMajor . ' f', 'e.major_id=f.id');
     return $this->db->get_where($this->tableKrs . ' a', $data);
+  }
+
+  public function getDataDetailKRSBy($data)
+  {
+    $this->db->select('a.*,b.name matkul,b.sks,b.code,b.semester');
+    $this->db->join($this->tableCourse . ' b', 'a.course_id=b.id', 'LEFT');
+    return $this->db->get_where($this->tableDetailKrs . ' a', $data);
   }
 
   //GET PRODI

@@ -59,7 +59,7 @@ $route['admin/master/student/resetpassword/(:any)'] = 'admin_students/resetpassw
 $route['admin/master/student/krs/(:any)']           = 'admin_students/krs/$1';
 $route['admin/master/student/getDosenPembimbing']   = 'admin_students/getDosenPembimbing';
 $route['admin/master/student/byid/(:any)']          = 'admin_students/byid/$1';
-
+$route['admin/master/student/krsdetail/(:any)']     = 'admin_students/detailkrs/$1';
 
 //LECTURE
 $route['admin/master/lecture']                      = 'admin_lecture';
