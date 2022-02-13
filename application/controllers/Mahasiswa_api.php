@@ -21,9 +21,8 @@ class Mahasiswa_api extends CI_Controller
         // check current krs
         $currenkrs = $this->Krs->getKrsCurrent($active_academic->id, $student->id)->row();
         // pretty_dump($currenkrs);
-        $latestkrs = $this->Krs->getKrsLatestSemester($student->id)->row();
-        $getsumkrs = $this->Krs->getSumKrs($student->id);
         if (!$currenkrs) {
+            $latestkrs = $this->Krs->getKrsbyStudentId($student->id)->row();
             // insert ke database
             $dataInsert = [
                 "academic_year_id"  => $active_academic->id,
@@ -33,9 +32,13 @@ class Mahasiswa_api extends CI_Controller
                 "ip"                => 0,
                 "status"            => "edit",
             ];
-            $this->Krs->insert($dataInsert);
+            $id = $this->Krs->insert($dataInsert);
+            $currenkrs = $this->Krs->getKrsCurrentbyId($id)->row();
+        } else {
+            $latestkrs = $this->Krs->getKrsbySemester($student->id, $currenkrs->semester - 1)->row();
         }
-        $data = $this->Krs->getKrsCurrent($active_academic->id, $student->id)->row();
+        $data = $currenkrs;
+        $getsumkrs = $this->Krs->getSumKrs($student->id, $currenkrs->semester);
         $data->total_kredit = ($getsumkrs) ? $getsumkrs->total_kredit : 0;
         $data->ip_latest    = ($latestkrs) ? $latestkrs->ip : 0;
         $data->course_takens = $this->Krs->getKrsCurrentCourseTaken($active_academic->id, $student->id)->result();
