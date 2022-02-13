@@ -172,7 +172,9 @@
                           <td style="width: 10;text-align:center"><?= $courseTaken->grade; ?></td>
                           <td style="width: 10;text-align:center"><?= $courseTaken->score; ?></td>
                           <td style="width: 10;text-align:center"><?= $courseTaken->description; ?></td>
-                          <td style="width: 10;text-align:center">Aksi</td>
+                          <td style="width: 10;text-align:center">
+                            <button class="btn btn-success isi-grade-khs" data-toggle="modal" data-target="#modal<?= $courseTaken->id ?>">Update</button>
+                          </td>
                         <?php endif; ?>
                       </tr>
                     <?php endforeach; ?>
@@ -207,3 +209,80 @@
     </div>
   </div>
 </div>
+
+<?php foreach ($detailKrs as $courseTaken) : ?>
+  <div class="modal fade" id="modal<?= $courseTaken->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <form action="<?= base_url('admin/master/student/updatekhs/' . $courseTaken->id) ?>" method="POST">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterLabel">Update KHS</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-4">
+                <p class="modal-course-code">Kode Mata Kuliah</p>
+                <p class="modal-course-name">Nama Mata Kuliah</p>
+              </div>
+              <div class="col-8">
+                <p class="modal-course-code">: <?= $courseTaken->code; ?></p>
+                <p class="modal-course-name">: <?= $courseTaken->matkul; ?></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="nohp">Grade</label>
+                  <div class="form-radio">
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'A' || $courseTaken->grade === "" ? 'checked="checked"' : '' ?> value="A">
+                        <i class="helper"></i>A
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'B' ? 'checked="checked"' : '' ?> value="B">
+                        <i class="helper"></i>B
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'C' ? 'checked="checked"' : '' ?> value="C">
+                        <i class="helper"></i>C
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'D' ? 'checked="checked"' : '' ?> value="D">
+                        <i class="helper"></i>D
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'E' ? 'checked="checked"' : '' ?> value="E">
+                        <i class="helper"></i>E
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="hidden" name="krsId" id="krsId" value="<?= $courseTaken->krs_id; ?>">
+                  <input type="hidden" name="credit" id="credit" value="<?= $courseTaken->sks; ?>">
+                  <label for="description">Keterangan</label>
+                  <input type="text" class="form-control " id="description" placeholder="Keterangan" name="description" value="<?= $courseTaken->description; ?>">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<?php endforeach; ?>

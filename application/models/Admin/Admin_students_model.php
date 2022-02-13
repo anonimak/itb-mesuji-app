@@ -134,4 +134,10 @@ class Admin_students_model extends CI_Model
     $this->db->update($this->tableKrs, $data, $where);
     return $this->db->affected_rows();
   }
+
+  public function updateDetailKrs($data, $where)
+  {
+    $this->db->update($this->tableDetailKrs, $data, $where);
+    return $this->db->affected_rows();
+  }
 }
