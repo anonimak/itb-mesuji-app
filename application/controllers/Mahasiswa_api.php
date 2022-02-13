@@ -71,7 +71,7 @@ class Mahasiswa_api extends CI_Controller
         $data = $this->Krs->getKrsCoursesOddEven($student->prodi_id, $active_academic->semester, $student->id)->result();
         $limitCredit = 24;
         if ($currenkrs->semester > 1) {
-            $getsumkrs = $this->Khs->getSumKrs($student->id, $currenkrs->semester);
+            $getsumkrs = $this->Krs->getSumKrs($student->id, $currenkrs->semester);
             $limitCredit = ($getsumkrs->ipk < 3) ? 21 : 24;
         }
 
