@@ -8,7 +8,7 @@
       <div class="col-md-12">
         <div class="jumbotron">
           <h1 class="display-4">Selamat Datang!</h1>
-          <p class="lead">Di Aplikasi E-PKL Politeknik Negeri Lampung</p>
+          <p class="lead">Di Aplikasi ITB Mesuji</p>
         </div>
       </div>
     </div>

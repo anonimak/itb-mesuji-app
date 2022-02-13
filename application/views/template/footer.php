@@ -1,9 +1,8 @@
 <!-- END CONTAINER -->
 <footer class="footer">
   <div class="w-100 clearfix">
-    <span class="text-center text-sm-left d-md-inline-block">Copyright © <?= date('Y') ?> ITB Mesuji v.1.0. All Rights
+    <span class="text-center float-sm-right d-md-inline-block">Copyright © <?= date('Y') ?> ITB Mesuji v.1.0. All Rights
       Reserved.</span>
-    <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
   </div>
 </footer>
 </div>
