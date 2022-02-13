@@ -178,14 +178,16 @@ class Admin_students extends CI_Controller
 		$decode     = decodeEncrypt($krsId);
 		$krs    		= $this->Student->getDataKRSBy(['a.id' => $decode])->row();
 		if ($krs) {
-			$detailKrs	= $this->Student->getDataDetailKRSBy(['a.krs_id' => $decode])->result();
-			$semeterLalu	= $krs->semester - 1;
-			$ipSemesterLalu		= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id, 'a.semester' => $semeterLalu]);
-			$totalKreditTercapai	= $this->Student->getDataKRSBy(['a.student_id' => $krs->student_id, 'a.semester' => $semeterLalu]);
+			$detailKrs						= $this->Student->getDataDetailKRSBy(['a.krs_id' => $decode])->result();
+			$semeterLalu					= $krs->semester - 1;
+			$ipSemesterLalu				= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id, 'a.semester' => $semeterLalu]);
+			$totalKreditTercapai	= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id]);
 			$totalKredit					= 0;
 			if ($totalKreditTercapai->num_rows() > 0) {
 				foreach ($totalKreditTercapai->result() as $skstercapai) {
-					$totalKredit	+= $skstercapai->kredit;
+					if ($skstercapai->semester < $krs->semester) {
+						$totalKredit		+= $skstercapai->kredit;
+					}
 				}
 			}
 			if ($ipSemesterLalu->num_rows() > 0) {

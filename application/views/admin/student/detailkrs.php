@@ -35,12 +35,18 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12">
-                <span class="badge badge-info"></span>
-
+                <?php if ($krs->status === 'verified') : ?>
+                  <span class="badge badge-info">KRS Telah Di Verifikasi</span>
+                <?php endif; ?>
               </div>
               <div class="col-12 mt-4">
                 <div class="text-center">
-                  <h4>Kartu Rencana Study</h4>
+                  <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
+                    <h4>Kartu Rencana Study</h4>
+                  <?php endif; ?>
+                  <?php if ($krs->status === 'verified') : ?>
+                    <h4>Kartu Hasil Studi</h4>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -124,10 +130,19 @@
                       <th>#</th>
                       <th>Sandi Matakuliah</th>
                       <th>Nama Matakuliah</th>
-                      <th>Semester</th>
-                      <th>SKS</th>
-                      <th>Pengambilan ke</th>
-                      <th>Aksi</th>
+                      <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
+                        <th>Semester</th>
+                        <th>SKS</th>
+                        <!-- <th>Pengambilan ke</th> -->
+                      <?php endif; ?>
+                      <?php if ($krs->status === 'verified') : ?>
+                        <th>Kredit</th>
+                        <th>Huruf Mutu</th>
+                        <th>Skor</th>
+                        <th>Keterangan</th>
+                        <th>Aksi</th>
+                      <?php endif; ?>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -137,10 +152,20 @@
                         <td style="width: 5%; text-align:center"><?= $i++; ?></td>
                         <td style="width: 15"><?= $courseTaken->code; ?></td>
                         <td style="width: 20"><?= $courseTaken->matkul; ?></td>
-                        <td style="width: 10;text-align:center"><?= $courseTaken->semester; ?></td>
-                        <td style="width: 10;text-align:center"><?= $courseTaken->sks; ?></td>
-                        <td style="width: 15 ;">-</td>
-                        <td style="width: 25">-</td>
+                        <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
+                          <!-- <th>Pengambilan ke</th> -->
+                          <td style="width: 10;text-align:center"><?= $courseTaken->semester; ?></td>
+                          <td style="width: 10;text-align:center"><?= $courseTaken->sks; ?></td>
+                          <!-- <td style="width: 15 ;">-</td> -->
+                          <!-- <td style="width: 25">-</td> -->
+                        <?php endif; ?>
+                        <?php if ($krs->status === 'verified') : ?>
+                          <td style="width: 10;text-align:center"><?= $courseTaken->sks; ?></td>
+                          <td style="width: 10;text-align:center"><?= $courseTaken->grade; ?></td>
+                          <td style="width: 10;text-align:center"><?= $courseTaken->score; ?></td>
+                          <td style="width: 10;text-align:center"><?= $courseTaken->description; ?></td>
+                          <td style="width: 10;text-align:center">Aksi</td>
+                        <?php endif; ?>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
