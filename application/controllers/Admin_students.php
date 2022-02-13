@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 use Mpdf\Tag\P;
+use Mpdf\Tag\Th;
 
 class Admin_students extends CI_Controller
 {
@@ -177,19 +178,28 @@ class Admin_students extends CI_Controller
 		$decode     = decodeEncrypt($krsId);
 		$krs    		= $this->Student->getDataKRSBy(['a.id' => $decode])->row();
 		if ($krs) {
-			$student = $krs->student_id;
-			// check current krs
-			$latestkrs = $this->Student->getKrsLatestSemester($student)->row();
-			$getsumkrs = $this->Student->getSumKrs($student);
-			$data = $this->Student->getKrsCurrent($krs->id)->row();
-			$data->total_kredit = ($getsumkrs) ? $getsumkrs->total_kredit : 0;
-			$data->ip_latest    = ($latestkrs) ? $latestkrs->ip : 0;
-			$data->course_takens = $this->Student->getKrsCurrentCourseTaken($krs->id)->result();
-
+			$detailKrs	= $this->Student->getDataDetailKRSBy(['a.krs_id' => $decode])->result();
+			$semeterLalu	= $krs->semester - 1;
+			$ipSemesterLalu		= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id, 'a.semester' => $semeterLalu]);
+			$totalKreditTercapai	= $this->Student->getDataKRSBy(['a.student_id' => $krs->student_id, 'a.semester !=' => $krs->semester]);
+			$totalKredit					= 0;
+			if ($totalKreditTercapai->num_rows() > 0) {
+				foreach ($totalKreditTercapai->result() as $skstercapai) {
+					$totalKredit	+= $skstercapai->kredit;
+				}
+			}
+			if ($ipSemesterLalu->num_rows() > 0) {
+				$ipSebelumnya 	= $ipSemesterLalu->row()->ip;
+			} else {
+				$ipSebelumnya	= 0;
+			}
 			$data = [
 				'title'         => 'KRS Mahasiswa',
 				'desc'          => 'Berfungsi untuk Melihat Data KRS Mahasiswa',
-				'krs'						=> $data,
+				'krs'						=> $krs,
+				'detailKrs'			=> $detailKrs,
+				'ipSebelumnya'	=> $ipSebelumnya,
+				'totalKreditTercapai'	=> $totalKredit,
 			];
 			$page = '/admin/student/detailkrs';
 			pageBackend($this->role, $page, $data);

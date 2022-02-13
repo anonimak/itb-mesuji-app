@@ -85,7 +85,7 @@
                     Program Studi
                   </div>
                   <div class="col">
-                    : <?= $krs->prodi_name; ?>
+                    : <?= $krs->prodi; ?>
                   </div>
                 </div>
                 <div class="row">
@@ -93,7 +93,7 @@
                     Tahun Akademik
                   </div>
                   <div class="col">
-                    : <?= $krs->academic_year_name; ?> - <?= $krs->academic_year_semester; ?>
+                    : <?= $krs->ta; ?> - <?= $krs->ta_semester; ?>
                   </div>
                 </div>
                 <div class="row">
@@ -101,7 +101,7 @@
                     Total kredit yang telah dicapai
                   </div>
                   <div class="col">
-                    : <?= $krs->total_kredit; ?>
+                    : <?= $totalKreditTercapai; ?>
                   </div>
                 </div>
 
@@ -110,7 +110,7 @@
                     IP Semester lalu
                   </div>
                   <div class="col">
-                    : <?= $krs->ip_latest; ?>
+                    : <?= $ipSebelumnya; ?>
                   </div>
                 </div>
               </div>
@@ -132,11 +132,11 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    foreach ($krs->course_takens as $courseTaken) : ?>
+                    foreach ($detailKrs as $courseTaken) : ?>
                       <tr>
                         <td style="width: 5%; text-align:center"><?= $i++; ?></td>
                         <td style="width: 15"><?= $courseTaken->code; ?></td>
-                        <td style="width: 20"><?= $courseTaken->name; ?></td>
+                        <td style="width: 20"><?= $courseTaken->matkul; ?></td>
                         <td style="width: 10;text-align:center"><?= $courseTaken->semester; ?></td>
                         <td style="width: 10;text-align:center"><?= $courseTaken->sks; ?></td>
                         <td style="width: 15 ;">-</td>

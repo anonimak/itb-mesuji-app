@@ -116,7 +116,7 @@ class Admin_students_model extends CI_Model
 
   public function getDataDetailKRSBy($data)
   {
-    $this->db->select('a.*,b.name matkul,b.sks,b.code');
+    $this->db->select('a.*,b.name matkul,b.sks,b.code,b.semester');
     $this->db->join($this->tableCourse . ' b', 'a.course_id=b.id', 'LEFT');
     return $this->db->get_where($this->tableDetailKrs . ' a', $data);
   }
@@ -127,53 +127,5 @@ class Admin_students_model extends CI_Model
     $this->db->select('a.*, b.name as major');
     $this->db->join($this->tableMajor . ' b', 'a.major_id=b.id', 'LEFT');
     return $this->db->get($this->tableProdi . ' a');
-  }
-
-  //QUERY DARI MAHASISWA
-  public function getActiveAcademicYear()
-  {
-    $this->db->select('*');
-    return $this->db->get_where($this->tableTa, ['status' => 1])->row();
-  }
-
-  public function getKrsLatestSemester($studentId)
-  {
-    $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
-    $this->db->join($this->table . ' b', 'a.student_id=b.id', 'LEFT');
-    $this->db->join($this->tableTa . ' c', 'a.academic_year_id=c.id', 'LEFT');
-    $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
-    $this->db->where('a.status', 'verified');
-    $this->db->limit(1);
-    $this->db->order_by('a.semester', 'DESC');
-    return $this->db->get_where($this->tableKrs . ' a', ['a.id' => $studentId]);
-  }
-
-  public function getSumKrs($studentId)
-  {
-    $this->db->select('sum(kredit) total_kredit, (sum(ip)/ count(ip)) ipk');
-    $this->db->where('status', 'verified');
-    $this->db->group_by('student_id');
-    $query = $this->db->get_where($this->tableKrs, ['student_id' => $studentId]);
-    return $query->row();
-  }
-
-  public function getKrsCurrent($krsId)
-  {
-    $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester,e.name lecture');
-    $this->db->join($this->table . ' b', 'a.student_id=b.id', 'LEFT');
-    $this->db->join($this->tableTa . ' c', 'a.academic_year_id=c.id', 'LEFT');
-    $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
-    $this->db->join($this->tableLecture . ' e', ' b.lecture_id=e.id', 'LEFT');
-    return $this->db->get_where($this->tableKrs . ' a', ['a.id' => $krsId]);
-  }
-
-  public function getKrsCurrentCourseTaken($krsId)
-  {
-    $this->db->select('a.id, c.code, c.name, c.semester, c.sks');
-    $this->db->join($this->tableKrs . ' b', 'a.krs_id=b.id', 'LEFT');
-    $this->db->join($this->tableCourse . ' c', 'a.course_id=c.id', 'LEFT');
-    $this->db->where('b.id', $krsId);
-    $this->db->order_by('c.semester', 'ASC');
-    return $this->db->get($this->tableDetailKrs . ' a');
   }
 }
