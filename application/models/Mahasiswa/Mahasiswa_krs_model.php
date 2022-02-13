@@ -28,6 +28,16 @@
             return $this->db->get($this->tableAcademicYear)->result();
         }
 
+        public function getKrsCurrentbyId($id)
+        {
+            $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester,e.name lecture');
+            $this->db->join($this->tableStudent . ' b', 'a.student_id=b.id', 'LEFT');
+            $this->db->join($this->tableAcademicYear . ' c', 'a.academic_year_id=c.id', 'LEFT');
+            $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
+            $this->db->join($this->tableLecture . ' e', ' b.lecture_id=e.id', 'LEFT');
+            return $this->db->get_where($this->table . ' a', ['a.id' => $id]);
+        }
+
         public function getKrsCurrent($academicYearId, $studentId)
         {
             $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester,e.name lecture');
@@ -85,7 +95,7 @@
                                 AND $strOddEven");
         }
 
-        public function getKrsLatestSemester($studentId)
+        public function getKrsbyStudentId($studentId)
         {
             $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
             $this->db->join($this->tableStudent . ' b', 'a.student_id=b.id', 'LEFT');
@@ -97,10 +107,25 @@
             return $this->db->get_where($this->table . ' a', ['a.student_id' => $studentId]);
         }
 
-        public function getSumKrs($studentId)
+        public function getKrsbySemester($studentId, $semester)
+        {
+            $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
+            $this->db->join($this->tableStudent . ' b', 'a.student_id=b.id', 'LEFT');
+            $this->db->join($this->tableAcademicYear . ' c', 'a.academic_year_id=c.id', 'LEFT');
+            $this->db->join($this->tableProdi . ' d', 'b.prodi_id=d.id', 'LEFT');
+            $this->db->where('a.status', 'verified');
+            $this->db->where('a.semester', $semester);
+            $this->db->limit(1);
+            $this->db->order_by('a.semester', 'DESC');
+            return $this->db->get_where($this->table . ' a', ['a.student_id' => $studentId]);
+        }
+
+        public function getSumKrs($studentId, $semester = null)
         {
             $this->db->select('sum(kredit) total_kredit, (sum(ip)/ count(ip)) ipk');
             $this->db->where('status', 'verified');
+            if ($semester)
+                $this->db->where('semester <', $semester);
             $this->db->group_by('student_id');
             $query = $this->db->get_where($this->table, ['student_id' => $studentId]);
             return $query->row();
@@ -139,7 +164,9 @@
         {
             $this->db->set('id', 'UUID()', FALSE);
             $this->db->insert($this->table, $data);
-            return $this->db->affected_rows();
+            $insert_id = $this->db->insert_id();
+
+            return  $insert_id;
         }
 
         public function insertDetail($data)
