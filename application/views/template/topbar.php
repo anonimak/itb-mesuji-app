@@ -14,8 +14,9 @@
         <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
       </div>
       <div class="top-menu d-flex align-items-center">
+        <?= ($this->session->userdata('role') === 'Mahasiswa') ? $this->session->userdata('username')->fullname . ' | ' . $this->session->userdata('user') : $this->session->userdata('user') ?>
         <div class="dropdown">
-          <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?= base_url('assets/') ?>img/user.jpg" alt=""></a>
+          <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="avatar d-flex justify-content-center"><i class="fa fa-user my-auto"></i></span></a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <?php if ($this->session->userdata('role') === 'Mahasiswa') : ?>
               <a class="dropdown-item" href="<?= site_url('mahasiswa/profile') ?>"><i class="ik ik-user dropdown-icon"></i> Profile</a>

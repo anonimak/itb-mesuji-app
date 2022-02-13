@@ -118,13 +118,24 @@
                                                 <td><?= $item->code ?></td>
                                                 <td><?= $item->name ?></td>
                                                 <td><?= $item->sks ?></td>
-                                                <td><?= $item->score ?></td>
                                                 <td><?= $item->grade ?></td>
+                                                <td><?= $item->score ?></td>
                                                 <td><?= $item->description ?></td>
                                             </tr>
                                         <?php
                                         endforeach; ?>
                                     </tbody>
+                                    <tfoot>
+                                        <tr class="table-secondary">
+                                            <th>Jumlah / Total</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th><?= $dataKhs->kredit ?></th>
+                                            <th></th>
+                                            <th><?= $score ?></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                             <div class="col-xl-3 col-md-3 mt-4">

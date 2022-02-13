@@ -349,7 +349,7 @@
                                       </tr>
                                       <tr>
                                         <td style="text-align:left">IP Semester Lalu</td>
-                                        <td style="text-align:left">: <?= $student->ip; ?></td>
+                                        <td style="text-align:left">: <?= $student->ip_latest; ?></td>
                                       </tr>
                                     </tbody>
                                   </table>

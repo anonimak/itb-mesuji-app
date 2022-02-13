@@ -29,7 +29,7 @@ class Auth_model extends CI_Model
   {
     switch ($this->session->userdata('role')) {
       case 'Mahasiswa':
-        $query = "SELECT student.fullname FROM student WHERE email = '" . $this->session->userdata('user') . "'";
+        $query = "SELECT student.fullname FROM student WHERE npm = '" . $this->session->userdata('user') . "'";
         return $this->db->query($query)->row_array();
         break;
       default:
