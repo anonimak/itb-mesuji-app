@@ -276,6 +276,13 @@
                                         </tr>
 
                                       <?php endforeach; ?>
+                                      <tr style="background-color: #BBBBBB;">
+                                        <td colspan="3"><strong>Jumlah / Total</strong></td>
+                                        <td style="width: 10;text-align:center"><strong><?= $dataKhs->total_kredit; ?></strong></td>
+                                        <td style="width: 10;text-align:center"></td>
+                                        <td style="width: 15 ;text-align:center"><strong><?= $score; ?></strong></td>
+                                        <td style="width: 25"></td>
+                                      </tr>
                                     </tbody>
                                   </table>
                                 </div>
@@ -306,12 +313,8 @@
                                   <table border="0" cellpadding="5" style="border-collapse: collapse; width: 100%;text-align:left">
                                     <tbody>
                                       <tr>
-                                        <td style="width: 30%;">Jumlah/Total</td>
-                                        <td style="width: 70%;">:</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Indeks Prestasi <br /> <span style="font-style:italic; font-weight:bold">Grade Point Average </span></td>
-                                        <td>: <?= $dataKhs->ip; ?></td>
+                                        <td style="width: 30%;">Indeks Prestasi <br /> <span style="font-style:italic; font-weight:bold">Grade Point Average </span></td>
+                                        <td style="width: 70%;">: <?= $dataKhs->ip; ?></td>
                                       </tr>
                                       <tr>
                                         <td>Total SKS <br /> <span style="font-style:italic; font-weight:bold">Total Credit </span></td>

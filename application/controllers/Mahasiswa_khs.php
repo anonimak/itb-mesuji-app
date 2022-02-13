@@ -30,10 +30,10 @@ class Mahasiswa_khs extends CI_Controller
     {
         $id   = decodeEncrypt($id);
         $student = $this->session->userdata('username');
-        $getsumkrs = $this->Khs->getSumKrs($student->id);
         $dataKhs = $this->Khs->getKhsbyId($id, $student->id)->row();
+        $getsumkrs = $this->Khs->getSumKrs($student->id, $dataKhs->semester + 1);
         $dataKhs->total_kredit = ($getsumkrs) ? $getsumkrs->total_kredit : 0;
-        $dataKhs->ipk = ($getsumkrs) ? floor($getsumkrs->ipk * 100) / 100 : 0;
+        $dataKhs->ipk = ($getsumkrs) ? $getsumkrs->ipk : 0;
         $detailKhs = $this->Khs->getKhsCourseTakenbyKhsId($dataKhs->id)->result();
         $score  = 0;
         foreach ($detailKhs as $detail) {
