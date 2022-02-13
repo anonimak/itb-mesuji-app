@@ -181,7 +181,7 @@ class Admin_students extends CI_Controller
 			$detailKrs	= $this->Student->getDataDetailKRSBy(['a.krs_id' => $decode])->result();
 			$semeterLalu	= $krs->semester - 1;
 			$ipSemesterLalu		= $this->Student->getDataKRSBy(['a.student_id =' => $krs->student_id, 'a.semester' => $semeterLalu]);
-			$totalKreditTercapai	= $this->Student->getDataKRSBy(['a.student_id' => $krs->student_id, 'a.semester !=' => $krs->semester]);
+			$totalKreditTercapai	= $this->Student->getDataKRSBy(['a.student_id' => $krs->student_id, 'a.semester' => $semeterLalu]);
 			$totalKredit					= 0;
 			if ($totalKreditTercapai->num_rows() > 0) {
 				foreach ($totalKreditTercapai->result() as $skstercapai) {
