@@ -404,7 +404,7 @@ class Admin_students extends CI_Controller
 		$decodeId   = decodeEncrypt($krsId);
 		$student    = $this->Student->getDataKRSBy(['a.id' => $decodeId])->row();
 		if ($student) {
-			$updateKrs    = $this->Student->UpdateKrs(['status' => 'verified', 'update_at' => date('Y-m-d H:i:s')], ['id' => $decodeId]);
+			$updateKrs    = $this->Student->UpdateKrs(['status' => 'verified', 'updated_at' => date('Y-m-d H:i:s')], ['id' => $decodeId]);
 			if ($updateKrs > 0) {
 				$this->session->set_flashdata('success', 'Data berhasil di update');
 			} else {
