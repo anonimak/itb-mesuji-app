@@ -67,12 +67,12 @@ class Mahasiswa_api extends CI_Controller
     {
         $active_academic = $this->Krs->getActiveAcademicYear();
         $student = $this->session->userdata('username');
-        $latestkrs = $this->Krs->getlatestKrsbyStudentId($student->id)->row();
         $currenkrs = $this->Krs->getKrsCurrent($active_academic->id, $student->id)->row();
         $data = $this->Krs->getKrsCoursesOddEven($student->prodi_id, $active_academic->semester, $student->id)->result();
         $limitCredit = 24;
-        if ($latestkrs) {
-            $limitCredit = ($latestkrs->ip < 3) ? 21 : 24;
+        if ($currenkrs->semester > 1) {
+            $getsumkrs = $this->Khs->getSumKrs($student->id, $currenkrs->semester);
+            $limitCredit = ($getsumkrs->ipk < 3) ? 21 : 24;
         }
 
         $response = array(
