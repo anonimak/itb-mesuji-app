@@ -194,7 +194,7 @@
                       </tr>
                       <tr>
                         <td colspan="3" style="text-align: right;font-weight:bold">IP <br> (Total Skor/Total Kredit)</td>
-                        <td colspan="5" style="font-weight:bold"><?= $totalSkor / $totalSks; ?></td>
+                        <td colspan="5" style="font-weight:bold"><?= round(($totalSkor / $totalSks), 2); ?></td>
                       </tr>
                     <?php endif; ?>
                   </tbody>
