@@ -157,7 +157,7 @@ class Admin_students extends CI_Controller
 		$decode     = decodeEncrypt($id);
 		$student    = $this->Student->getDataBy(['a.id' => $decode])->row();
 		if ($student) {
-			$krs			= $this->Student->getDataKRSBy(['student_id' => $decode])->result();
+			$krs			= $this->Student->getDataKRSBy(['a.student_id' => $decode])->result();
 			$data = [
 				'title'         => 'KRS Mahasiswa',
 				'desc'          => 'Berfungsi untuk Melihat Data KRS Mahasiswa',
@@ -171,6 +171,34 @@ class Admin_students extends CI_Controller
 			redirect($this->redirect);
 		}
 	}
+
+	public function detailkrs($krsId)
+	{
+		$decode     = decodeEncrypt($krsId);
+		$krs    		= $this->Student->getDataKRSBy(['a.id' => $decode])->row();
+		if ($krs) {
+			$student = $krs->student_id;
+			// check current krs
+			$latestkrs = $this->Student->getKrsLatestSemester($student)->row();
+			$getsumkrs = $this->Student->getSumKrs($student);
+			$data = $this->Student->getKrsCurrent($krs->id)->row();
+			$data->total_kredit = ($getsumkrs) ? $getsumkrs->total_kredit : 0;
+			$data->ip_latest    = ($latestkrs) ? $latestkrs->ip : 0;
+			$data->course_takens = $this->Student->getKrsCurrentCourseTaken($krs->id)->result();
+
+			$data = [
+				'title'         => 'KRS Mahasiswa',
+				'desc'          => 'Berfungsi untuk Melihat Data KRS Mahasiswa',
+				'krs'						=> $data,
+			];
+			$page = '/admin/student/detailkrs';
+			pageBackend($this->role, $page, $data);
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+			redirect($this->redirect);
+		}
+	}
+
 
 	public function import()
 	{
