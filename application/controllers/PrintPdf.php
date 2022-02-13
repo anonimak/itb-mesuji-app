@@ -32,7 +32,7 @@ class PrintPdf extends CI_Controller
     $view   = $this->load->view('mahasiswa/print/krs', $data, TRUE);
     $mpdf->SetProtection(array('print'));
     $mpdf->WriteHTML($view);
-    $mpdf->Output('KRS Semester ' . $data['student']->semester . ' - ' . $data['student']->fullname . '.pdf', 'I');
+    $mpdf->Output('KRS Semester ' . $data['student']->semester . ' - ' . $data['student']->fullname . '.pdf', 'D');
   }
 
   public function khs($id)
@@ -64,7 +64,7 @@ class PrintPdf extends CI_Controller
       $view   = $this->load->view('mahasiswa/print/khs', $data, TRUE);
       $mpdf->SetProtection(array('print'));
       $mpdf->WriteHTML($view);
-      $mpdf->Output('KHS Semester 1 - Agung Hardiyanto.pdf', 'I');
+      $mpdf->Output('KHS Semester 1 - Agung Hardiyanto.pdf', 'D');
     }
   }
 }
