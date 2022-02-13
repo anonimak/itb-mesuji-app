@@ -398,4 +398,21 @@ class Admin_students extends CI_Controller
 			);
 		}
 	}
+
+	public function verifedkrs($krsId)
+	{
+		$decodeId   = decodeEncrypt($krsId);
+		$student    = $this->Student->getDataKRSBy(['a.id' => $decodeId])->row();
+		if ($student) {
+			$updateKrs    = $this->Student->UpdateKrs(['status' => 'verified'], ['id' => $decodeId]);
+			if ($updateKrs > 0) {
+				$this->session->set_flashdata('success', 'Data berhasil di update');
+			} else {
+				$this->session->set_flashdata('error', 'Server data mahasiswa sedang sibuk, silahkan coba lagi');
+			}
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+		}
+		redirect('admin/master/student/krsdetail/' . $krsId);
+	}
 }

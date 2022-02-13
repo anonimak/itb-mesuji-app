@@ -35,8 +35,11 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12">
+                <?php if ($krs->status === 'unverified') : ?>
+                  <button type="button" class="btn btn-danger" id="verifed-krs" data-id="<?= encodeEncrypt($krs->id) ?>">Verifikasi</button>
+                <?php endif; ?>
                 <?php if ($krs->status === 'verified') : ?>
-                  <span class="badge badge-info">KRS Telah Di Verifikasi</span>
+                  <a class="btn btn-info" href="#">KRS Telah Di Verifikasi</a>
                 <?php endif; ?>
               </div>
               <div class="col-12 mt-4">
@@ -124,30 +127,35 @@
             <hr>
             <div class="row mt-4">
               <div class="col-12">
-                <table class=" table table-stripped dataTable">
+                <table class="table table-stripped table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Sandi Matakuliah</th>
                       <th>Nama Matakuliah</th>
                       <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
-                        <th>Semester</th>
-                        <th>SKS</th>
+                        <th style="text-align:center">Semester</th>
+                        <th style="text-align:center">SKS</th>
                         <!-- <th>Pengambilan ke</th> -->
                       <?php endif; ?>
                       <?php if ($krs->status === 'verified') : ?>
-                        <th>Kredit</th>
-                        <th>Huruf Mutu</th>
-                        <th>Skor</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <th style="text-align:center">Kredit</th>
+                        <th style="text-align:center">Huruf Mutu</th>
+                        <th style="text-align:center">Skor</th>
+                        <th style="text-align:center">Keterangan</th>
+                        <th style="text-align:center">Aksi</th>
                       <?php endif; ?>
 
                     </tr>
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    foreach ($detailKrs as $courseTaken) : ?>
+                    $totalSks = 0;
+                    $totalSkor  = 0;
+                    foreach ($detailKrs as $courseTaken) :
+                      $totalSks += $courseTaken->sks;
+                      $totalSkor  += $courseTaken->score;
+                    ?>
                       <tr>
                         <td style="width: 5%; text-align:center"><?= $i++; ?></td>
                         <td style="width: 15"><?= $courseTaken->code; ?></td>
@@ -168,6 +176,27 @@
                         <?php endif; ?>
                       </tr>
                     <?php endforeach; ?>
+                    <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
+                      <tr>
+                        <td colspan="4" style="text-align: right;font-weight:bold">Total SKS</td>
+                        <td style="text-align:center;font-weight:bold"><?= $totalSks; ?></td>
+                      </tr>
+                    <?php endif; ?>
+
+                    <?php if ($krs->status === 'verified') : ?>
+                      <tr>
+                        <td colspan="3" style="text-align: right;font-weight:bold">Jumlah/Total</td>
+                        <td style="text-align:center;font-weight:bold"><?= $totalSks; ?></td>
+                        <td style="background-color: bisque;"></td>
+                        <td style="text-align:center;font-weight:bold"><?= $totalSkor; ?></td>
+                        <td style="background-color: bisque;"></td>
+                        <td style="background-color: bisque;"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" style="text-align: right;font-weight:bold">IP <br> (Total Skor/Total Kredit)</td>
+                        <td colspan="5" style="font-weight:bold"><?= $totalSkor / $totalSks; ?></td>
+                      </tr>
+                    <?php endif; ?>
                   </tbody>
                 </table>
               </div>

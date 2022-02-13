@@ -128,4 +128,10 @@ class Admin_students_model extends CI_Model
     $this->db->join($this->tableMajor . ' b', 'a.major_id=b.id', 'LEFT');
     return $this->db->get($this->tableProdi . ' a');
   }
+
+  public function UpdateKrs($data, $where)
+  {
+    $this->db->update($this->tableKrs, $data, $where);
+    return $this->db->affected_rows();
+  }
 }

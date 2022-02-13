@@ -118,6 +118,12 @@ $(document).ready(function () {
 	//STUDENT
 	select2ajax("prodi", "Cari nama jurusan atau prodi");
 	
+	$("#verifed-krs").on('click', function(){
+		var krsId = $(this).data('id');
+		var url		= `${base_url}admin/master/student/krsverifed/${krsId}`;
+		deleteQuestion(url,'Akan Verifikasi KRS ini ?')
+	})
+
 	//CARI DOSEN PEMBIMBING
 	
 	$(".get-dosen-pembimbing").select2({
@@ -169,12 +175,15 @@ $(document).ready(function () {
 		buttonClickDelete("lecture", id);
 	});
 
+	
 	//COMPANY
 	select2ajax("regency2", "Cari nama kabupaten atau provinsi");
 	$(document).on("click", ".delete-company", function () {
 		var id = $(this).data("id");
 		buttonClickDelete("company", id);
 	});
+
+	
 
 	$("#academicyearyearpkladmin").select2({
 		placeholder: "Cari tahun akademik",
