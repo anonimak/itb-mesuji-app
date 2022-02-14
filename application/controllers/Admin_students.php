@@ -398,4 +398,74 @@ class Admin_students extends CI_Controller
 			);
 		}
 	}
+
+	public function verifedkrs($krsId)
+	{
+		$decodeId   = decodeEncrypt($krsId);
+		$student    = $this->Student->getDataKRSBy(['a.id' => $decodeId])->row();
+		if ($student) {
+			$updateKrs    = $this->Student->UpdateKrs(['status' => 'verified', 'updated_at' => date('Y-m-d H:i:s')], ['id' => $decodeId]);
+			if ($updateKrs > 0) {
+				$this->session->set_flashdata('success', 'Data berhasil di update');
+			} else {
+				$this->session->set_flashdata('error', 'Server data mahasiswa sedang sibuk, silahkan coba lagi');
+			}
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+		}
+		redirect('admin/master/student/krsdetail/' . $krsId);
+	}
+
+	public function updatekhs($detailKrsId)
+	{
+		$krsId	= $this->input->post('krsId');
+		$grade 	= $this->input->post('grade');
+		if ($grade === 'A') {
+			$value	= 4;
+		}
+		if ($grade === 'B') {
+			$value	= 3;
+		}
+		if ($grade === 'C') {
+			$value	= 2;
+		}
+		if ($grade === 'D') {
+			$value	= 1;
+		}
+		if ($grade === 'E') {
+			$value	= 0;
+		}
+		$kredit	= $this->input->post('credit');
+		$score	= $value * (int)$kredit;
+		$desc 	= $this->input->post('description');
+		$dataUpdate	= [
+			'grade'				=> $grade,
+			'score'				=> $score,
+			'description'	=> $desc,
+			'updated_at'	=> date('Y-m-d H:i:s')
+		];
+		$where	= [
+			'id'	=> $detailKrsId
+		];
+		$updateKhs	= $this->Student->updateDetailKrs($dataUpdate, $where);
+		if ($updateKhs > 0) {
+			$detailKrs						= $this->Student->getDataDetailKRSBy(['a.krs_id' => $krsId])->result();
+			$totalKredit	= 0;
+			$totalScore		= 0;
+			foreach ($detailKrs as $updateIp) {
+				$totalKredit	+= $updateIp->sks;
+				$totalScore		+= $updateIp->score;
+			}
+			$ipSemester	= round(($totalScore / $totalKredit), 2);
+			$updateIpKhs	= $this->Student->UpdateKrs(['ip' => $ipSemester, 'updated_at' => date('Y-m-d H:i:s')], ['id' => $krsId]);
+			if ($updateIpKhs > 0) {
+				$this->session->set_flashdata('success', 'Data berhasil di update');
+			} else {
+				$this->session->set_flashdata('error', 'Server data KRS sedang sibuk, silahkan coba lagi');
+			}
+		} else {
+			$this->session->set_flashdata('error', 'Server data Detail KRS sedang sibuk, silahkan coba lagi');
+		}
+		redirect('admin/master/student/krsdetail/' . encodeEncrypt($krsId));
+	}
 }

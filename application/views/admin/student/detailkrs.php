@@ -35,8 +35,11 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12">
+                <?php if ($krs->status === 'unverified') : ?>
+                  <button type="button" class="btn btn-danger" id="verifed-krs" data-id="<?= encodeEncrypt($krs->id) ?>">Verifikasi</button>
+                <?php endif; ?>
                 <?php if ($krs->status === 'verified') : ?>
-                  <span class="badge badge-info">KRS Telah Di Verifikasi</span>
+                  <a class="btn btn-info" href="#">KRS Telah Di Verifikasi</a>
                 <?php endif; ?>
               </div>
               <div class="col-12 mt-4">
@@ -124,30 +127,35 @@
             <hr>
             <div class="row mt-4">
               <div class="col-12">
-                <table class=" table table-stripped dataTable">
+                <table class="table table-stripped table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Sandi Matakuliah</th>
                       <th>Nama Matakuliah</th>
                       <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
-                        <th>Semester</th>
-                        <th>SKS</th>
+                        <th style="text-align:center">Semester</th>
+                        <th style="text-align:center">SKS</th>
                         <!-- <th>Pengambilan ke</th> -->
                       <?php endif; ?>
                       <?php if ($krs->status === 'verified') : ?>
-                        <th>Kredit</th>
-                        <th>Huruf Mutu</th>
-                        <th>Skor</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <th style="text-align:center">Kredit</th>
+                        <th style="text-align:center">Huruf Mutu</th>
+                        <th style="text-align:center">Skor</th>
+                        <th style="text-align:center">Keterangan</th>
+                        <th style="text-align:center">Aksi</th>
                       <?php endif; ?>
 
                     </tr>
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    foreach ($detailKrs as $courseTaken) : ?>
+                    $totalSks = 0;
+                    $totalSkor  = 0;
+                    foreach ($detailKrs as $courseTaken) :
+                      $totalSks += $courseTaken->sks;
+                      $totalSkor  += $courseTaken->score;
+                    ?>
                       <tr>
                         <td style="width: 5%; text-align:center"><?= $i++; ?></td>
                         <td style="width: 15"><?= $courseTaken->code; ?></td>
@@ -164,10 +172,33 @@
                           <td style="width: 10;text-align:center"><?= $courseTaken->grade; ?></td>
                           <td style="width: 10;text-align:center"><?= $courseTaken->score; ?></td>
                           <td style="width: 10;text-align:center"><?= $courseTaken->description; ?></td>
-                          <td style="width: 10;text-align:center">Aksi</td>
+                          <td style="width: 10;text-align:center">
+                            <button class="btn btn-success isi-grade-khs" data-toggle="modal" data-target="#modal<?= $courseTaken->id ?>">Update</button>
+                          </td>
                         <?php endif; ?>
                       </tr>
                     <?php endforeach; ?>
+                    <?php if ($krs->status === 'edit' || $krs->status === 'unverified') : ?>
+                      <tr>
+                        <td colspan="4" style="text-align: right;font-weight:bold">Total SKS</td>
+                        <td style="text-align:center;font-weight:bold"><?= $totalSks; ?></td>
+                      </tr>
+                    <?php endif; ?>
+
+                    <?php if ($krs->status === 'verified') : ?>
+                      <tr>
+                        <td colspan="3" style="text-align: right;font-weight:bold">Jumlah/Total</td>
+                        <td style="text-align:center;font-weight:bold"><?= $totalSks; ?></td>
+                        <td style="background-color: bisque;"></td>
+                        <td style="text-align:center;font-weight:bold"><?= $totalSkor; ?></td>
+                        <td style="background-color: bisque;"></td>
+                        <td style="background-color: bisque;"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" style="text-align: right;font-weight:bold">IP <br> (Total Skor/Total Kredit)</td>
+                        <td colspan="5" style="font-weight:bold"><?= round(($totalSkor / $totalSks), 2); ?></td>
+                      </tr>
+                    <?php endif; ?>
                   </tbody>
                 </table>
               </div>
@@ -178,3 +209,80 @@
     </div>
   </div>
 </div>
+
+<?php foreach ($detailKrs as $courseTaken) : ?>
+  <div class="modal fade" id="modal<?= $courseTaken->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <form action="<?= base_url('admin/master/student/updatekhs/' . $courseTaken->id) ?>" method="POST">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterLabel">Update KHS</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-4">
+                <p class="modal-course-code">Kode Mata Kuliah</p>
+                <p class="modal-course-name">Nama Mata Kuliah</p>
+              </div>
+              <div class="col-8">
+                <p class="modal-course-code">: <?= $courseTaken->code; ?></p>
+                <p class="modal-course-name">: <?= $courseTaken->matkul; ?></p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="nohp">Grade</label>
+                  <div class="form-radio">
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'A' || $courseTaken->grade === "" ? 'checked="checked"' : '' ?> value="A">
+                        <i class="helper"></i>A
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'B' ? 'checked="checked"' : '' ?> value="B">
+                        <i class="helper"></i>B
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'C' ? 'checked="checked"' : '' ?> value="C">
+                        <i class="helper"></i>C
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'D' ? 'checked="checked"' : '' ?> value="D">
+                        <i class="helper"></i>D
+                      </label>
+                    </div>
+                    <div class="radio radio-inline">
+                      <label>
+                        <input type="radio" name="grade" <?= $courseTaken->grade === 'E' ? 'checked="checked"' : '' ?> value="E">
+                        <i class="helper"></i>E
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="hidden" name="krsId" id="krsId" value="<?= $courseTaken->krs_id; ?>">
+                  <input type="hidden" name="credit" id="credit" value="<?= $courseTaken->sks; ?>">
+                  <label for="description">Keterangan</label>
+                  <input type="text" class="form-control " id="description" placeholder="Keterangan" name="description" value="<?= $courseTaken->description; ?>">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<?php endforeach; ?>
