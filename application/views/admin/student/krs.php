@@ -20,7 +20,7 @@
               <li class="breadcrumb-item" aria-current="page">
                 <a href="<?= base_url('admin/master/student') ?>">Data Mahasiswa</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
+              <li class="breadcrumb-item active" aria-current="page"><?= $student->npm ?></li>
             </ol>
           </nav>
         </div>
@@ -34,6 +34,9 @@
               <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
                 <div>
                   <h3 class="text-uppercase"><?= $title; ?> : <?= $student->fullname . ' ' . $student->npm ?></h3>
+                </div>
+                <div>
+                  <a href="<?= base_url('admin/master/student'); ?>" class="btn btn-primary">Kembali</a>
                 </div>
               </div>
             </div>

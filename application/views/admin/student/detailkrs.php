@@ -17,7 +17,13 @@
               <li class="breadcrumb-item">
                 <a href="<?= base_url(); ?>">Dashboard</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="<?= base_url('admin/master/student') ?>">Data Mahasiswa</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                <a href="<?= $__backurl; ?>"><?= $krs->npm; ?></a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">KRS semester <?= $krs->semester; ?></li>
             </ol>
           </nav>
         </div>
@@ -32,6 +38,18 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
+          <div class="card-header d-block">
+            <div class="d-flex flex-grow-1 min-width-zero card-content">
+              <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                <div>
+                  <h3 class="text-uppercase"></h3>
+                </div>
+                <div>
+                  <a href="<?= $__backurl; ?>" class="btn btn-primary">Kembali</a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="card-body">
             <div class="row">
               <div class="col-12">

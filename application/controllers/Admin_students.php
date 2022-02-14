@@ -176,7 +176,7 @@ class Admin_students extends CI_Controller
 	public function detailkrs($krsId)
 	{
 		$decode     = decodeEncrypt($krsId);
-		$krs    		= $this->Student->getDataKRSBy(['a.id' => $decode])->row();
+		$krs    = $this->Student->getDataKRSBy(['a.id' => $decode])->row();
 		if ($krs) {
 			$detailKrs						= $this->Student->getDataDetailKRSBy(['a.krs_id' => $decode])->result();
 			$semeterLalu					= $krs->semester - 1;
@@ -202,6 +202,7 @@ class Admin_students extends CI_Controller
 				'detailKrs'			=> $detailKrs,
 				'ipSebelumnya'	=> $ipSebelumnya,
 				'totalKreditTercapai'	=> $totalKredit,
+				'__backurl'		=> base_url('admin/master/student/krs/' . encodeEncrypt($krs->student_id))
 			];
 			$page = '/admin/student/detailkrs';
 			pageBackend($this->role, $page, $data);
