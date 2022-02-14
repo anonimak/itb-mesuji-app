@@ -36,9 +36,9 @@
                </div>
             </div>
 
-            <div class="nav-item <?= ($uri  === 'registrations' ? 'active' : '') ?>">
+            <!-- <div class="nav-item <?= ($uri  === 'registrations' ? 'active' : '') ?>">
                <a href="<?= base_url('admin/registrations') ?>"><i class="ik ik-cast"></i><span>Nilai KHS</span></a>
-            </div>
+            </div> -->
          </nav>
       </div>
    </div>
