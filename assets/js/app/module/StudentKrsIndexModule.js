@@ -1,5 +1,5 @@
 import mySwal from "../components/swal.js";
-import krsAPI from "../request/krsAPI.js";
+import krsAPI from "../request/krsApi.js";
 
 export default (function () {
 	// init scope
