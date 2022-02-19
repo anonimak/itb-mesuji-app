@@ -95,6 +95,21 @@
                                 AND $strOddEven");
         }
 
+        public function getKrsCoursesbySemester($prodiId, $studentId, $semester, $withOption)
+        {
+
+            $strOption = ($withOption) ? "OR `is_option` = 1" : "";
+            return $this->db->query("SELECT * FROM `course` 
+                                WHERE `prodi_id` = '$prodiId'
+                                AND `id` 
+                                NOT IN(
+                                    SELECT `a`.course_id FROM `detail_krs` `a` 
+                                    LEFT JOIN `krs` `b` ON `a`.`krs_id`=`b`.`id` 
+                                    WHERE `b`.`student_id` = '$studentId'
+                                ) 
+                                AND (`semester` = $semester $strOption )");
+        }
+
         public function getlatestKrsbyStudentId($studentId)
         {
             $this->db->select('a.*, b.fullname, b.npm, d.name prodi_name, d.degree, c.name academic_year_name, c.semester academic_year_semester');
