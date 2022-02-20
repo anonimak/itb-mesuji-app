@@ -75,7 +75,24 @@
                   <?= form_error('prodi'); ?>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary"><i class="ik ik-save"></i>Simpan</button>
+              <div class="form-group">
+                <label for="name">Mata Kuliah Pilihan:</label>
+                <div class="form-radio">
+                  <div class="radio radio-inline">
+                    <label>
+                      <input type="radio" name="is-option" <?= $course->is_option === '1' ? 'checked="checked"' : ''; ?> value="1">
+                      <i class="helper"></i>Ya
+                    </label>
+                  </div>
+                  <div class="radio radio-inline">
+                    <label>
+                      <input type="radio" name="is-option" <?= $course->is_option === '0' ? 'checked="checked"' : ''; ?> value="0">
+                      <i class="helper"></i>Tidak
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success"><i class="ik ik-save"></i>Update Data</button>
               <a href="<?= base_url('admin/master/course') ?>" class="btn btn-danger"><i class="ik ik-skip-back"></i>Kembali</a>
             </form>
           </div>

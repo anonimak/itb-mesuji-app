@@ -55,9 +55,11 @@
               <div class="col-12">
                 <?php if ($krs->status === 'unverified') : ?>
                   <button type="button" class="btn btn-danger" id="verifed-krs" data-id="<?= encodeEncrypt($krs->id) ?>">Verifikasi</button>
+                  <button type="button" class="btn btn-warning" id="reset-krs" data-id="<?= encodeEncrypt($krs->id) ?>">Reset KRS</button>
                 <?php endif; ?>
                 <?php if ($krs->status === 'verified') : ?>
                   <a class="btn btn-info" href="#">KRS Telah Di Verifikasi</a>
+                  <button type="button" class="btn btn-warning" id="reset-krs" data-id="<?= encodeEncrypt($krs->id) ?>">Reset KRS</button>
                 <?php endif; ?>
               </div>
               <div class="col-12 mt-4">

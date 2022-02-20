@@ -41,7 +41,8 @@ class Admin_course extends CI_Controller
         'code'      => htmlspecialchars($this->input->post('code')),
         'sks'       => htmlspecialchars($this->input->post('sks')),
         'semester'  => htmlspecialchars($this->input->post('semester')),
-        'prodi_id'  => htmlspecialchars($this->input->post('prodi'))
+        'prodi_id'  => htmlspecialchars($this->input->post('prodi')),
+        'is_option' => $this->input->post('is-option'),
       ];
       $insert    = $this->course->insert($dataInput);
       if ($insert > 0) {
@@ -75,7 +76,9 @@ class Admin_course extends CI_Controller
           'code'      => htmlspecialchars($this->input->post('code')),
           'sks'       => htmlspecialchars($this->input->post('sks')),
           'semester'  => htmlspecialchars($this->input->post('semester')),
-          'prodi_id'  => htmlspecialchars($this->input->post('prodi'))
+          'prodi_id'  => htmlspecialchars($this->input->post('prodi')),
+          'is_option' => $this->input->post('is-option'),
+          'updated_at'  => date('Y-m-d H:i:s')
         ];
         $update        = $this->course->update($dataUpdate, ['id' => $decodeId]);
         if ($update > 0) {

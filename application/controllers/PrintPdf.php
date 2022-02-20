@@ -64,7 +64,7 @@ class PrintPdf extends CI_Controller
       $view   = $this->load->view('mahasiswa/print/khs', $data, TRUE);
       $mpdf->SetProtection(array('print'));
       $mpdf->WriteHTML($view);
-      $mpdf->Output('KHS Semester 1 - Agung Hardiyanto.pdf', 'D');
+      $mpdf->Output('KHS Semester ' . $dataKhs->semester . ' - ' . $dataKhs->fullname . '.pdf', 'D');
     }
   }
 }

@@ -417,6 +417,29 @@ class Admin_students extends CI_Controller
 		redirect('admin/master/student/krsdetail/' . $krsId);
 	}
 
+	public function krsreset($krsId)
+	{
+		$decodeId   = decodeEncrypt($krsId);
+		$student    = $this->Student->getDataKRSBy(['a.id' => $decodeId])->row();
+		if ($student) {
+			$cekDetailKrs = $this->Student->getDataDetailKRSBy(['a.krs_id' => $decodeId, 'score !=' => 0]);
+			if ($cekDetailKrs->num_rows() > 0) {
+				//Tidak bisa di reset
+				$this->session->set_flashdata('error', 'KRS sudah ada nilainya tidak bisa di reset');
+			} else {
+				$updateKrs    = $this->Student->UpdateKrs(['status' => 'edit', 'updated_at' => date('Y-m-d H:i:s')], ['id' => $decodeId]);
+				if ($updateKrs > 0) {
+					$this->session->set_flashdata('success', 'Data berhasil di update');
+				} else {
+					$this->session->set_flashdata('error', 'Server data mahasiswa sedang sibuk, silahkan coba lagi');
+				}
+			}
+		} else {
+			$this->session->set_flashdata('error', 'Data yang anda masukan tidak ada');
+		}
+		redirect('admin/master/student/krsdetail/' . $krsId);
+	}
+
 	public function updatekhs($detailKrsId)
 	{
 		$krsId	= $this->input->post('krsId');

@@ -56,6 +56,7 @@
                     <th>Kode</th>
                     <th>SKS</th>
                     <th>Semester</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -69,6 +70,14 @@
                       <td><?= $item->code; ?></td>
                       <td><?= $item->sks; ?></td>
                       <td><?= $item->semester; ?></td>
+                      <td>
+                        <?php if ($item->is_option === '1') : ?>
+                          <span class="badge badge-success">Matkul Pilihan</span>
+                        <?php endif; ?>
+                        <?php if ($item->is_option === '0') : ?>
+                          <span class="badge badge-warning">Matkul Biasa</span>
+                        <?php endif; ?>
+                      </td>
                       <td>
                         <div class="btn-group" role="group">
                           <a href="<?= base_url('admin/master/course/edit/' . encodeEncrypt($item->id)) ?>" class="btn btn-success"><i class="ik ik-edit"></i>Edit</a>
