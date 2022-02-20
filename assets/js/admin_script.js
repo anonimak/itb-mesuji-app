@@ -124,6 +124,12 @@ $(document).ready(function () {
 		deleteQuestion(url,'Akan Verifikasi KRS ini ?')
 	})
 
+	$("#reset-krs").on('click', function(){
+		var krsId = $(this).data('id');
+		var url		= `${base_url}admin/master/student/krsreset/${krsId}`;
+		deleteQuestion(url,'Akan Reset Ulang KRS ini ?')
+	})
+
 	//CARI DOSEN PEMBIMBING
 	
 	$(".get-dosen-pembimbing").select2({
