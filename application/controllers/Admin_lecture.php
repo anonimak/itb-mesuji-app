@@ -199,7 +199,7 @@ class Admin_lecture extends CI_Controller
     $this->form_validation->set_rules(
       'nip',
       'NIP',
-      'trim|required|max_length[18]|min_length[18]' . $is_unique,
+      'trim|required|max_length[18]|min_length[8]' . $is_unique,
       [
         'required' => '%s wajib di isi',
       ]

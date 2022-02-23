@@ -126,6 +126,10 @@ $route['mahasiswa/api/krs/submit-krs/(:any)']['get']        = 'mahasiswa_api/sub
 $route['config/getprodi']                           = 'Admin_config/getprodi';
 
 
+// INSERT ALL
+$route['admin/populate/course']                       = 'Admin_populatedb/insertCourse';
+$route['admin/populate/student']                      = 'Admin_populatedb/insertStudent';
+
 /*=================END MAHASISWA ROLE======================*/
 
 $route['404_override'] = 'err';
