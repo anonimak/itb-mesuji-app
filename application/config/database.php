@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mipdevp.com',
-	'username' => 'mipdevpc_itbmesujiappuser',
-	'password' => '123Daftar@@',
-	'database' => 'mipdevpc_itbmesujiapp',
+	'hostname' => 'localhost',
+	'username' => 'siakad_itbmesujiuser',
+	'password' => '15gXOrKcbRCG',
+	'database' => 'siakad_itbmesuji',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
