@@ -56,6 +56,7 @@
                     <th>Kode</th>
                     <th>SKS</th>
                     <th>Semester</th>
+                    <th>Tipe</th>
                     <th>Status</th>
                     <th>Aksi</th>
                   </tr>
@@ -76,6 +77,14 @@
                         <?php endif; ?>
                         <?php if ($item->is_option === '0') : ?>
                           <span class="badge badge-warning">Matkul Biasa</span>
+                        <?php endif; ?>
+                      </td>
+                      <td>
+                        <?php if ($item->status === '1') : ?>
+                          <span class="badge badge-success">Aktif</span>
+                        <?php endif; ?>
+                        <?php if ($item->status === '0') : ?>
+                          <span class="badge badge-warning">Non Aktif</span>
                         <?php endif; ?>
                       </td>
                       <td>

@@ -107,7 +107,8 @@
                                     LEFT JOIN `krs` `b` ON `a`.`krs_id`=`b`.`id` 
                                     WHERE `b`.`student_id` = '$studentId'
                                 ) 
-                                AND (`semester` = $semester $strOption )");
+                                AND (`semester` = $semester $strOption )
+                                AND `status` = 1");
         }
 
         public function getlatestKrsbyStudentId($studentId)
