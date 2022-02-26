@@ -317,7 +317,7 @@ class Admin_students extends CI_Controller
 		$this->form_validation->set_rules(
 			'npm',
 			'NPM',
-			'trim|required|max_length[8]|min_length[8]' . $is_unique,
+			'trim|required|max_length[10]|min_length[10]' . $is_unique,
 			[
 				'required' => '%s wajib di isi',
 				'min_length'	=> '%s minimal 8 karakter',

@@ -125,7 +125,7 @@ class Auth extends CI_Controller
         $this->session->set_userdata('username', $dataUser);
         $this->session->set_userdata('role', 'Mahasiswa');
         $this->session->set_userdata('user', $dataUser->npm);
-        if ((string)$password == "123456" && $dataUser->name != 'Admin') {
+        if ((string)$password == "123456" && @$dataUser->npm != '') {
           return redirect('/auth/changedefault');
         }
         return redirect('/mahasiswa/dashboard');
